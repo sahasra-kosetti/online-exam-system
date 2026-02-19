@@ -190,6 +190,11 @@ margin-top:10px;
 margin-bottom:20px;
 
 }
+.question input[type="radio"]{
+width:auto;
+margin-right:8px;
+}
+
 
 button{
 
