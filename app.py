@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect, session
+from flask import Flask, request, redirect, session, url_for
 import time
 import openpyxl
 import os
@@ -7,16 +7,19 @@ app = Flask(__name__)
 app.secret_key = "exam_system_secret"
 
 EXCEL_FILE = "results.xlsx"
+EXAM_DURATION = 1800   # 30 minutes
 
 
 # =====================================================
-# CREATE EXCEL FILE IF NOT EXISTS
+# CREATE EXCEL FILE
 # =====================================================
 
 if not os.path.exists(EXCEL_FILE):
 
     wb = openpyxl.Workbook()
     ws = wb.active
+
+    ws.title = "Exam Results"
 
     ws.append([
         "Username",
@@ -27,14 +30,15 @@ if not os.path.exists(EXCEL_FILE):
         "Total",
         "Percentage",
         "Grade",
-        "Result"
+        "Result",
+        "Time"
     ])
 
     wb.save(EXCEL_FILE)
 
 
 # =====================================================
-# SAVE RESULT TO EXCEL
+# SAVE RESULT
 # =====================================================
 
 def save_result(username, student, score, total, percent, grade, result):
@@ -49,36 +53,42 @@ def save_result(username, student, score, total, percent, grade, result):
         student["roll"],
         score,
         total,
-        percent,
+        round(percent,2),
         grade,
-        result
+        result,
+        time.strftime("%Y-%m-%d %H:%M:%S")
     ])
 
     wb.save(EXCEL_FILE)
 
 
 # =====================================================
-# STUDENTS
+# STUDENTS AUTO GENERATE
 # =====================================================
 
 students = {}
 
-for i in range(1, 121):
+for i in range(1,121):
 
-    username = f"student{i}"
+    students[f"student{i}"] = {
 
-    students[username] = {
         "password": f"pass{i}",
         "name": f"Student {i}",
         "dept": "CSE",
         "roll": f"CSE2025{i:03}"
+
     }
 
+
+# custom student
+
 students["sahasra"] = {
-    "password": "1234",
-    "name": "Sahasra Kosetti",
-    "dept": "BCA- Data Science",
-    "roll": "2347390190"
+
+    "password":"1234",
+    "name":"Sahasra Kosetti",
+    "dept":"BCA Data Science",
+    "roll":"2347390190"
+
 }
 
 
@@ -88,154 +98,29 @@ students["sahasra"] = {
 
 questions = {
 
-    1: {
-        "text": "Which of the following protocols is used for secure communication over the Internet?",
-        "options": ["HTTP", "FTP", "HTTPS", "SMTP"]
+    1:{
+        "text":"Which protocol is secure?",
+        "options":["HTTP","HTTPS","FTP","SMTP"]
     },
 
-    2: {
-        "text": "What is the time complexity of binary search algorithm?",
-        "options": ["O(n)", "O(log n)", "O(n log n)", "O(1)"]
+    2:{
+        "text":"Binary search complexity?",
+        "options":["O(n)","O(log n)","O(n log n)","O(1)"]
     },
 
-    3: {
-        "text": "Which layer of OSI model is responsible for logical addressing?",
-        "options": ["Transport Layer", "Network Layer", "Session Layer", "Data Link Layer"]
+    3:{
+        "text":"FIFO structure?",
+        "options":["Stack","Queue","Tree","Graph"]
     },
 
-    4: {
-        "text": "Which data structure uses FIFO principle?",
-        "options": ["Stack", "Queue", "Tree", "Graph"]
+    4:{
+        "text":"Python creator?",
+        "options":["Dennis Ritchie","Guido van Rossum","James Gosling","Mark"]
     },
 
-    5: {
-        "text": "Which SQL command is used to remove a table permanently?",
-        "options": ["DELETE", "REMOVE", "DROP", "CLEAR"]
-    },
-
-    6: {
-        "text": "Which of the following is NOT an operating system?",
-        "options": ["Linux", "Windows", "Oracle", "MacOS"]
-    },
-
-    7: {
-        "text": "Which normal form removes transitive dependency?",
-        "options": ["1NF", "2NF", "3NF", "BCNF"]
-    },
-
-    8: {
-        "text": "Which protocol is used to send emails?",
-        "options": ["FTP", "SMTP", "HTTP", "SNMP"]
-    },
-
-    9: {
-        "text": "Which sorting algorithm has best average time complexity?",
-        "options": ["Bubble Sort", "Selection Sort", "Merge Sort", "Insertion Sort"]
-    },
-
-    10: {
-        "text": "Which of the following is used for version control?",
-        "options": ["Git", "Python", "MySQL", "HTML"]
-    },
-
-    11: {
-        "text": "Which memory is fastest?",
-        "options": ["RAM", "ROM", "Cache", "Hard Disk"]
-    },
-
-    12: {
-        "text": "Which symbol is used for single line comment in Python?",
-        "options": ["//", "#", "/* */", "--"]
-    },
-
-    13: {
-        "text": "Which protocol is used for file transfer?",
-        "options": ["FTP", "HTTP", "SMTP", "TCP"]
-    },
-
-    14: {
-        "text": "Which data structure uses LIFO principle?",
-        "options": ["Queue", "Stack", "Array", "Tree"]
-    },
-
-    15: {
-        "text": "Which key is used to uniquely identify a record in database?",
-        "options": ["Foreign Key", "Primary Key", "Candidate Key", "Alternate Key"]
-    },
-
-     16: {
-        "text": "Which of the following is volatile memory?",
-        "options": ["ROM", "Hard Disk", "RAM", "CD-ROM"]
-    },
-
-    17: {
-        "text": "Which protocol is used to access web pages?",
-        "options": ["HTTP", "FTP", "SMTP", "POP"]
-    },
-
-    18: {
-        "text": "Which of the following is not a programming language?",
-        "options": ["Python", "Java", "HTML", "Windows"]
-    },
-
-    19: {
-        "text": "Which data structure is used in recursion?",
-        "options": ["Queue", "Stack", "Tree", "Graph"]
-    },
-
-    20: {
-        "text": "Which of the following is example of system software?",
-        "options": ["MS Word", "Windows OS", "Chrome", "Photoshop"]
-    },
-
-    21: {
-        "text": "Which SQL clause is used to filter records?",
-        "options": ["WHERE", "ORDER", "GROUP", "FILTER"]
-    },
-
-    22: {
-        "text": "Which is brain of computer?",
-        "options": ["RAM", "CPU", "Hard Disk", "Monitor"]
-    },
-
-    23: {
-        "text": "Which topology uses central hub?",
-        "options": ["Ring", "Bus", "Star", "Mesh"]
-    },
-
-    24: {
-        "text": "Which of the following is NoSQL database?",
-        "options": ["MySQL", "Oracle", "MongoDB", "SQL Server"]
-    },
-
-    25: {
-        "text": "Which keyword is used to create function in Python?",
-        "options": ["function", "def", "create", "fun"]
-    },
-
-    26: {
-        "text": "Which of the following is output device?",
-        "options": ["Keyboard", "Mouse", "Printer", "Scanner"]
-    },
-
-    27: {
-        "text": "Which layer ensures reliable data transfer?",
-        "options": ["Transport Layer", "Application Layer", "Physical Layer", "Session Layer"]
-    },
-
-    28: {
-        "text": "Which operator is used for exponent in Python?",
-        "options": ["^", "**", "%", "//"]
-    },
-
-    29: {
-        "text": "Which is default port of HTTP?",
-        "options": ["80", "443", "21", "25"]
-    },
-
-    30: {
-        "text": "Which is example of interpreted language?",
-        "options": ["C", "C++", "Python", "Assembly"]
+    5:{
+        "text":"Database example?",
+        "options":["Python","MySQL","HTML","CSS"]
     }
 
 }
@@ -247,36 +132,11 @@ questions = {
 
 answer_key = {
 
-    1: "HTTPS",
-    2: "O(log n)",
-    3: "Network Layer",
-    4: "Queue",
-    5: "DROP",
-    6: "Oracle",
-    7: "3NF",
-    8: "SMTP",
-    9: "Merge Sort",
-    10: "Git",
-    11: "Cache",
-    12: "#",
-    13: "FTP",
-    14: "Stack",
-    15: "Primary Key",
-    16: "RAM",
-    17: "HTTP",
-    18: "Windows",
-    19: "Stack",
-    20: "Windows OS",
-    21: "WHERE",
-    22: "CPU",
-    23: "Star",
-    24: "MongoDB",
-    25: "def",
-    26: "Printer",
-    27: "Transport Layer",
-    28: "**",
-    29: "80",
-    30: "Python"
+    1:"HTTPS",
+    2:"O(log n)",
+    3:"Queue",
+    4:"Guido van Rossum",
+    5:"MySQL"
 
 }
 
@@ -285,17 +145,17 @@ answer_key = {
 # GRADE FUNCTION
 # =====================================================
 
-def calculate_grade(p):
+def grade(p):
 
-    if p >= 90: return "A+"
-    elif p >= 75: return "A"
-    elif p >= 60: return "B"
-    elif p >= 50: return "C"
-    else: return "F"
+    if p>=90:return "A+"
+    elif p>=75:return "A"
+    elif p>=60:return "B"
+    elif p>=50:return "C"
+    else:return "F"
 
 
 # =====================================================
-# CSS
+# PROFESSIONAL CSS + TIMER SCRIPT
 # =====================================================
 
 css = """
@@ -304,20 +164,20 @@ css = """
 
 body{
 margin:0;
-font-family:Arial;
-background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-color:white;
+font-family:Segoe UI;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
 }
 
-.login-box{
+/* LOGIN */
+
+.login{
 
 width:400px;
 margin:auto;
 margin-top:120px;
 background:white;
-color:black;
 padding:40px;
-border-radius:15px;
+border-radius:12px;
 }
 
 .center{text-align:center;}
@@ -326,10 +186,9 @@ input{
 
 width:100%;
 padding:12px;
-margin-top:5px;
-margin-bottom:15px;
-border-radius:8px;
-border:1px solid gray;
+margin-top:10px;
+margin-bottom:20px;
+
 }
 
 button{
@@ -339,52 +198,59 @@ background:#ff512f;
 color:white;
 border:none;
 border-radius:25px;
-cursor:pointer;
+
 }
 
-.exam-container{
+
+/* EXAM */
+
+.exam{
 
 display:flex;
 justify-content:center;
-margin-top:30px;
-gap:20px;
+gap:40px;
+margin-top:20px;
+
 }
 
-.logo{
+.logo img{
 
-width:200px;
-background:white;
-color:black;
-padding:20px;
-border-radius:15px;
-text-align:center;
+width:140px;
+
 }
 
 .timer{
 
-width:200px;
-background:red;
-padding:20px;
-border-radius:15px;
-text-align:center;
-font-size:22px;
+color:white;
+font-size:28px;
+
 }
 
-.question-area{
+.paper{
 
-width:700px;
 background:white;
-color:black;
 padding:30px;
-border-radius:15px;
+border-radius:12px;
+width:700px;
+
 }
 
 .question{
 
-background:#f2f4ff;
-padding:15px;
 margin-top:15px;
-border-radius:10px;
+
+}
+
+.result{
+
+width:400px;
+margin:auto;
+margin-top:100px;
+background:white;
+padding:30px;
+border-radius:12px;
+text-align:center;
+
 }
 
 .pass{color:green;font-size:22px;}
@@ -393,27 +259,32 @@ border-radius:10px;
 
 </style>
 
+
 <script>
 
-function startTimer(duration) {
+function startTimer(duration){
 
-let timer = duration;
+let timer=duration;
 
-setInterval(function () {
+setInterval(function(){
 
-let minutes = parseInt(timer / 60, 10)
-let seconds = parseInt(timer % 60, 10)
+let m=parseInt(timer/60)
+let s=parseInt(timer%60)
 
-minutes = minutes < 10 ? "0" + minutes : minutes;
-seconds = seconds < 10 ? "0" + seconds : seconds;
+m=m<10?"0"+m:m
+s=s<10?"0"+s:s
 
-document.getElementById("timer").textContent = minutes + ":" + seconds;
+document.getElementById("timer").innerHTML=m+":"+s
 
-if (--timer < 0) {
-timer = 0;
+if(timer<=0){
+
+document.getElementById("examForm").submit()
+
 }
 
-}, 1000);
+timer--
+
+},1000)
 
 }
 
@@ -423,10 +294,10 @@ timer = 0;
 
 
 # =====================================================
-# LOGIN
+# LOGIN PAGE
 # =====================================================
 
-@app.route("/", methods=["GET","POST"])
+@app.route("/",methods=["GET","POST"])
 def login():
 
     if request.method=="POST":
@@ -443,39 +314,48 @@ def login():
 
     return css+"""
 
-    <div class="login-box">
+<div class="login">
 
-    <h2 class="center">Exam Login</h2>
+<h2 class="center">Student Login</h2>
 
-    <form method="post">
+<form method="post">
 
-    Username
-    <input name="username">
+Username
+<input name="username" required>
 
-    Password
-    <input type="password" name="password">
+Password
+<input type="password" name="password" required>
 
-    <div class="center">
-    <button>Login</button>
-    </div>
+<div class="center">
+<button>Login</button>
+</div>
 
-    </form>
+</form>
 
-    </div>
-    """
+</div>
+
+"""
 
 
 # =====================================================
-# EXAM
+# EXAM PAGE
 # =====================================================
 
-@app.route("/exam", methods=["GET","POST"])
+@app.route("/exam",methods=["GET","POST"])
 def exam():
 
     if "user" not in session:
         return redirect("/")
 
     student=students[session["user"]]
+
+    elapsed=time.time()-session["start"]
+
+    remaining=int(EXAM_DURATION-elapsed)
+
+    if remaining<=0:
+
+        return redirect("/submit")
 
     if request.method=="POST":
 
@@ -487,70 +367,101 @@ def exam():
                 score+=1
 
         total=len(questions)
+
         percent=(score/total)*100
-        grade=calculate_grade(percent)
+
+        g=grade(percent)
+
         result="PASS" if percent>=50 else "FAIL"
 
-        save_result(session["user"], student, score, total, percent, grade, result)
+        save_result(session["user"],student,score,total,percent,g,result)
 
         return css+f"""
 
-        <div class="login-box center">
+<div class="result">
 
-        Name: {student['name']}<br>
-        Dept: {student['dept']}<br>
-        Roll: {student['roll']}<br>
-        Score: {score}/{total}<br>
-        Percentage: {percent:.2f}%<br>
-        Grade: {grade}<br>
-        Result: {result}
+<h2>Exam Result</h2>
 
-        </div>
-        """
+Name: {student['name']}<br><br>
+Dept: {student['dept']}<br><br>
+Roll: {student['roll']}<br><br>
 
-    html=css+"""
+Score: {score}/{total}<br><br>
 
-    <body onload="startTimer(1800)">
+Percentage: {percent:.2f}%<br><br>
 
-    <div class="exam-container">
+<div class="grade">Grade: {g}</div><br>
 
-    <div class="logo">
+<div class="{'pass' if result=='PASS' else 'fail'}">
+{result}
+</div>
 
-    <img src="college_logo.png" width="150">
+</div>
 
-    </div>
+"""
 
-    <div class="question-area">
 
-    <h2 class="center">Question Paper</h2>
+    html=css+f"""
 
-    <form method="post">
-    """
+<body onload="startTimer({remaining})">
 
-    for qno,q in questions.items():
+<div class="exam">
 
-        html+=f"<div class='question'><b>{q['text']}</b><br>"
+<div class="logo">
 
-        for opt in q["options"]:
+<img src="/static/college_logo.png">
 
-            html+=f"<input type='radio' name='q{qno}' value='{opt}' required>{opt}<br>"
+</div>
+
+<div class="paper">
+
+<h2 class="center">Question Paper</h2>
+
+<form method="post" id="examForm">
+
+"""
+
+
+    for q,qdata in questions.items():
+
+        html+=f"<div class='question'><b>Q{q}. {qdata['text']}</b><br>"
+
+        for opt in qdata["options"]:
+
+            html+=f"""
+<input type="radio" name="q{q}" value="{opt}" required>
+{opt}<br>
+"""
 
         html+="</div>"
 
-    html+="""<br><div class="center"><button>Submit</button></div></form></div>
 
-    <div class="timer">
+    html+="""
 
-    Time Left<br>
 
-    <span id="timer">30:00</span>
+<br>
 
-    </div>
+<div class="center">
+<button>Submit Exam</button>
+</div>
 
-    </div>
+</form>
 
-    </body>
-    """
+</div>
+
+<div class="timer">
+
+Time Left<br>
+
+<span id="timer">30:00</span>
+
+</div>
+
+</div>
+
+</body>
+
+"""
 
     return html
 
@@ -560,4 +471,4 @@ def exam():
 # =====================================================
 
 if __name__=="__main__":
-    app.run()
+    app.run(debug=True)
