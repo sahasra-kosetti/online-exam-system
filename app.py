@@ -154,6 +154,16 @@ def grade(p):
     elif p>=50:return "C"
     else:return "F"
 
+# =====================================================
+# LOGOUT
+# =====================================================
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect("/")
+
+
 
 # =====================================================
 # PROFESSIONAL CSS + TIMER SCRIPT
@@ -402,9 +412,16 @@ Percentage: {percent:.2f}%<br><br>
 {result}
 </div>
 
+<br><br>
+
+<a href="/logout">
+<button>Logout</button>
+</a>
+
 </div>
 
 """
+
 
 
     html=css+f"""
