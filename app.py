@@ -98,30 +98,154 @@ students["sahasra"] = {
 
 questions = {
 
-    1:{
-        "text":"Which protocol is secure?",
-        "options":["HTTP","HTTPS","FTP","SMTP"]
+    1: {
+        "text": "Which of the following protocols is used for secure communication over the Internet?",
+        "options": ["HTTP", "FTP", "HTTPS", "SMTP"]
     },
 
-    2:{
-        "text":"Binary search complexity?",
-        "options":["O(n)","O(log n)","O(n log n)","O(1)"]
+    2: {
+        "text": "What is the time complexity of binary search algorithm?",
+        "options": ["O(n)", "O(log n)", "O(n log n)", "O(1)"]
     },
 
-    3:{
-        "text":"FIFO structure?",
-        "options":["Stack","Queue","Tree","Graph"]
+    3: {
+        "text": "Which layer of OSI model is responsible for logical addressing?",
+        "options": ["Transport Layer", "Network Layer", "Session Layer", "Data Link Layer"]
     },
 
-    4:{
-        "text":"Python creator?",
-        "options":["Dennis Ritchie","Guido van Rossum","James Gosling","Mark"]
+    4: {
+        "text": "Which data structure uses FIFO principle?",
+        "options": ["Stack", "Queue", "Tree", "Graph"]
     },
 
-    5:{
-        "text":"Database example?",
-        "options":["Python","MySQL","HTML","CSS"]
-    }
+    5: {
+        "text": "Which SQL command is used to remove a table permanently?",
+        "options": ["DELETE", "REMOVE", "DROP", "CLEAR"]
+    },
+
+    6: {
+        "text": "Which of the following is NOT an operating system?",
+        "options": ["Linux", "Windows", "Oracle", "MacOS"]
+    },
+
+    7: {
+        "text": "Which normal form removes transitive dependency?",
+        "options": ["1NF", "2NF", "3NF", "BCNF"]
+    },
+
+    8: {
+        "text": "Which protocol is used to send emails?",
+        "options": ["FTP", "SMTP", "HTTP", "SNMP"]
+    },
+
+    9: {
+        "text": "Which sorting algorithm has best average time complexity?",
+        "options": ["Bubble Sort", "Selection Sort", "Merge Sort", "Insertion Sort"]
+    },
+
+    10: {
+        "text": "Which of the following is used for version control?",
+        "options": ["Git", "Python", "MySQL", "HTML"]
+    },
+
+    11: {
+        "text": "Which memory is fastest?",
+        "options": ["RAM", "ROM", "Cache", "Hard Disk"]
+    },
+
+    12: {
+        "text": "Which symbol is used for single line comment in Python?",
+        "options": ["//", "#", "/* */", "--"]
+    },
+
+    13: {
+        "text": "Which protocol is used for file transfer?",
+        "options": ["FTP", "HTTP", "SMTP", "TCP"]
+    },
+
+    14: {
+        "text": "Which data structure uses LIFO principle?",
+        "options": ["Queue", "Stack", "Array", "Tree"]
+    },
+
+    15: {
+        "text": "Which key is used to uniquely identify a record in database?",
+        "options": ["Foreign Key", "Primary Key", "Candidate Key", "Alternate Key"]
+    },
+    16: {
+        "text": "Which of the following is volatile memory?",
+        "options": ["ROM", "Hard Disk", "RAM", "CD-ROM"]
+    },
+
+    17: {
+        "text": "Which protocol is used to access web pages?",
+        "options": ["HTTP", "FTP", "SMTP", "POP"]
+    },
+
+    18: {
+        "text": "Which of the following is not a programming language?",
+        "options": ["Python", "Java", "HTML", "Windows"]
+    },
+
+    19: {
+        "text": "Which data structure is used in recursion?",
+        "options": ["Queue", "Stack", "Tree", "Graph"]
+    },
+
+    20: {
+        "text": "Which of the following is example of system software?",
+        "options": ["MS Word", "Windows OS", "Chrome", "Photoshop"]
+    },
+
+    21: {
+        "text": "Which SQL clause is used to filter records?",
+        "options": ["WHERE", "ORDER", "GROUP", "FILTER"]
+    },
+
+    22: {
+        "text": "Which is brain of computer?",
+        "options": ["RAM", "CPU", "Hard Disk", "Monitor"]
+    },
+
+    23: {
+        "text": "Which topology uses central hub?",
+        "options": ["Ring", "Bus", "Star", "Mesh"]
+    },
+
+    24: {
+        "text": "Which of the following is NoSQL database?",
+        "options": ["MySQL", "Oracle", "MongoDB", "SQL Server"]
+    },
+
+    25: {
+        "text": "Which keyword is used to create function in Python?",
+        "options": ["function", "def", "create", "fun"]
+    },
+
+    26: {
+        "text": "Which of the following is output device?",
+        "options": ["Keyboard", "Mouse", "Printer", "Scanner"]
+    },
+
+    27: {
+        "text": "Which layer ensures reliable data transfer?",
+        "options": ["Transport Layer", "Application Layer", "Physical Layer", "Session Layer"]
+    },
+
+    28: {
+        "text": "Which operator is used for exponent in Python?",
+        "options": ["^", "**", "%", "//"]
+    },
+
+    29: {
+        "text": "Which is default port of HTTP?",
+        "options": ["80", "443", "21", "25"]
+    },
+
+    30: {
+        "text": "Which is example of interpreted language?",
+        "options": ["C", "C++", "Python", "Assembly"]
+    } 
 
 }
 
@@ -132,11 +256,36 @@ questions = {
 
 answer_key = {
 
-    1:"HTTPS",
-    2:"O(log n)",
-    3:"Queue",
-    4:"Guido van Rossum",
-    5:"MySQL"
+    1: "HTTPS",
+    2: "O(log n)",
+    3: "Network Layer",
+    4: "Queue",
+    5: "DROP",
+    6: "Oracle",
+    7: "3NF",
+    8: "SMTP",
+    9: "Merge Sort",
+    10: "Git",
+    11: "Cache",
+    12: "#",
+    13: "FTP",
+    14: "Stack",
+    15: "Primary Key",
+    16: "RAM",
+    17: "HTTP",
+    18: "Windows",
+    19: "Stack",
+    20: "Windows OS",
+    21: "WHERE",
+    22: "CPU",
+    23: "Star",
+    24: "MongoDB",
+    25: "def",
+    26: "Printer",
+    27: "Transport Layer",
+    28: "**",
+    29: "80",
+    30: "Python
 
 }
 
