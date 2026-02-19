@@ -1,64 +1,92 @@
 from flask import Flask, request, redirect, session
 
 app = Flask(__name__)
-app.secret_key = "exam_secret_key_123"
+app.secret_key = "exam_system_secret"
 
 
 # =====================================================
-# 120 STUDENTS AUTO GENERATED (COMMON BRANCH CSE)
+# AUTO GENERATE 120 STUDENTS WITH ROLL NO, NAME, DEPT
 # =====================================================
 
 students = {}
 
 for i in range(1, 121):
-    students[f"student{i}"] = {
+
+    username = f"student{i}"
+
+    students[username] = {
         "password": f"pass{i}",
         "name": f"Student {i}",
-        "branch": "CSE"
+        "dept": "CSE",
+        "roll": f"CSE2025{i:03}"
     }
 
+# Example custom student
 students["sahasra"] = {
     "password": "1234",
     "name": "Sahasra Kosetti",
-    "branch": "CSE"
+    "dept": "CSE",
+    "roll": "CSE2025000"
 }
 
 
 # =====================================================
-# QUESTION PAPER (YOU WILL GIVE TEXT HERE)
+# QUESTION PAPER (PASTE YOUR QUESTIONS HERE)
 # =====================================================
 
 questions = {
 
     1: {
-        "text": "Your Question 1 here",
-        "options": ["A", "B", "C", "D"]
+        "text": "Python developed by?",
+        "options": ["James Gosling", "Guido van Rossum", "Dennis Ritchie", "Mark"]
     },
 
     2: {
-        "text": "Your Question 2 here",
-        "options": ["A", "B", "C", "D"]
+        "text": "Capital of India?",
+        "options": ["Delhi", "Mumbai", "Chennai", "Kolkata"]
     },
 
     3: {
-        "text": "Your Question 3 here",
-        "options": ["A", "B", "C", "D"]
+        "text": "Which is database?",
+        "options": ["MySQL", "Python", "HTML", "CSS"]
     }
 
 }
 
 
 # =====================================================
-# ANSWER SHEET (YOU WILL GIVE ANSWERS HERE)
+# ANSWER SHEET (UPLOAD / PASTE ANSWERS HERE)
 # =====================================================
 
 answer_key = {
 
-    1: "A",
-    2: "B",
-    3: "C"
+    1: "Guido van Rossum",
+    2: "Delhi",
+    3: "MySQL"
 
 }
+
+
+# =====================================================
+# GRADE FUNCTION
+# =====================================================
+
+def calculate_grade(percentage):
+
+    if percentage >= 90:
+        return "A+"
+
+    elif percentage >= 75:
+        return "A"
+
+    elif percentage >= 60:
+        return "B"
+
+    elif percentage >= 50:
+        return "C"
+
+    else:
+        return "F"
 
 
 # =====================================================
@@ -69,22 +97,24 @@ css = """
 <style>
 
 body {
-    margin: 0;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    margin:0;
+    background: linear-gradient(135deg, #1d2b64, #f8cdda);
     font-family: Arial;
 }
 
 .container {
-    width: 450px;
+
+    width: 500px;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 80px;
     background: white;
     padding: 30px;
     border-radius: 15px;
 }
 
 .exam {
-    width: 800px;
+
+    width: 900px;
     margin: auto;
     margin-top: 40px;
     background: white;
@@ -96,12 +126,21 @@ body {
     text-align: center;
 }
 
+.question {
+
+    background: #f2f4ff;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
 button {
+
     padding: 12px 40px;
-    border: none;
-    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    background: linear-gradient(90deg, #ff512f, #dd2476);
     color: white;
-    border-radius: 20px;
+    border: none;
+    border-radius: 25px;
     font-size: 16px;
 }
 
@@ -113,6 +152,11 @@ button {
 .fail {
     color: red;
     font-size: 22px;
+}
+
+.grade {
+    font-size: 20px;
+    color: blue;
 }
 
 </style>
@@ -128,23 +172,33 @@ def login():
 
     if request.method == "POST":
 
-        user = request.form["username"]
+        username = request.form["username"]
         password = request.form["password"]
 
-        if user in students and students[user]["password"] == password:
+        if username in students and students[username]["password"] == password:
 
-            session["user"] = user
+            session["user"] = username
+
             return redirect("/exam")
 
         else:
 
-            return css + "<div class='container'><h2>Invalid Login</h2></div>"
+            return css + """
+
+            <div class="container center">
+
+            <h2>Invalid Login</h2>
+
+            <a href="/"><button>Try Again</button></a>
+
+            </div>
+            """
 
     return css + """
 
     <div class="container">
 
-    <h2 class="center">Student Login</h2>
+    <h2 class="center">Online Exam Login</h2>
 
     <form method="post">
 
@@ -182,14 +236,17 @@ def exam():
 
         for qno in questions:
 
-            student_ans = request.form.get(f"q{qno}")
+            ans = request.form.get(f"q{qno}")
 
-            if student_ans == answer_key[qno]:
+            if ans == answer_key[qno]:
+
                 score += 1
 
         total = len(questions)
 
         percentage = (score / total) * 100
+
+        grade = calculate_grade(percentage)
 
         result = "PASS" if percentage >= 50 else "FAIL"
 
@@ -199,31 +256,53 @@ def exam():
 
         <div class="container center">
 
-        <h2>Result</h2>
+        <h2>Exam Result</h2>
 
-        Name: {student['name']}<br>
-        Branch: {student['branch']}<br>
-        Score: {score}/{total}<br>
-        Percentage: {percentage:.2f}%<br>
+        Name: {student['name']}<br><br>
 
-        <p class="{result_class}">{result}</p>
+        Department: {student['dept']}<br><br>
+
+        Roll No: {student['roll']}<br><br>
+
+        Score: {score}/{total}<br><br>
+
+        Percentage: {percentage:.2f}%<br><br>
+
+        <div class="grade">Grade: {grade}</div><br>
+
+        <div class="{result_class}">Result: {result}</div><br>
 
         <a href="/logout"><button>Logout</button></a>
 
         </div>
         """
 
-    html = css + "<div class='exam'><h2 class='center'>Question Paper</h2><form method='post'>"
+    html = css + """
+
+    <div class="exam">
+
+    <h2 class="center">Question Paper</h2>
+
+    <form method="post">
+    """
 
     for qno, q in questions.items():
 
-        html += f"<p><b>Q{qno}. {q['text']}</b></p>"
+        html += f"""
+
+        <div class="question">
+
+        <b>Q{qno}. {q['text']}</b><br><br>
+        """
 
         for opt in q["options"]:
 
             html += f"""
+
             <input type="radio" name="q{qno}" value="{opt}" required> {opt}<br>
             """
+
+        html += "</div>"
 
     html += """
 
@@ -232,7 +311,9 @@ def exam():
     <button type="submit">Submit Answer Sheet</button>
     </div>
 
-    </form></div>
+    </form>
+
+    </div>
     """
 
     return html
@@ -255,4 +336,5 @@ def logout():
 # =====================================================
 
 if __name__ == "__main__":
+
     app.run()
