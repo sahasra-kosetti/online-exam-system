@@ -6,8 +6,7 @@ import os
 app = Flask(__name__)
 app.secret_key = "exam_system_secret"
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-EXCEL_FILE = os.path.join(BASE_DIR, "results.xlsx")
+EXCEL_FILE = "results.xlsx"
 EXAM_DURATION = 1800   # 30 minutes
 
 
@@ -176,7 +175,7 @@ css = """
 body{
 margin:0;
 font-family:Segoe UI;
-background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+background: linear-gradient(90deg, #F6CFBE, #B9DCF2);
 }
 
 /* LOGIN */
