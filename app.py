@@ -1,340 +1,186 @@
-from flask import Flask, request, redirect, session
+import streamlit as st
+import time
 
-app = Flask(__name__)
-app.secret_key = "exam_system_secret"
+# ---------------- PAGE CONFIG ---------------- #
+st.set_page_config(
+    page_title="Online Exam System",
+    layout="wide",
+    initial_sidebar_state="collapsed"
+)
 
-
-# =====================================================
-# AUTO GENERATE 120 STUDENTS WITH ROLL NO, NAME, DEPT
-# =====================================================
-
-students = {}
-
-for i in range(1, 121):
-
-    username = f"student{i}"
-
-    students[username] = {
-        "password": f"pass{i}",
-        "name": f"Student {i}",
-        "dept": "CSE",
-        "roll": f"CSE2025{i:03}"
-    }
-
-# Example custom student
-students["sahasra"] = {
-    "password": "1234",
-    "name": "Sahasra Kosetti",
-    "dept": "CSE",
-    "roll": "CSE2025000"
-}
-
-
-# =====================================================
-# QUESTION PAPER (PASTE YOUR QUESTIONS HERE)
-# =====================================================
-
-questions = {
-
-    1: {
-        "text": "Python developed by?",
-        "options": ["James Gosling", "Guido van Rossum", "Dennis Ritchie", "Mark"]
-    },
-
-    2: {
-        "text": "Capital of India?",
-        "options": ["Delhi", "Mumbai", "Chennai", "Kolkata"]
-    },
-
-    3: {
-        "text": "Which is database?",
-        "options": ["MySQL", "Python", "HTML", "CSS"]
-    }
-
-}
-
-
-# =====================================================
-# ANSWER SHEET (UPLOAD / PASTE ANSWERS HERE)
-# =====================================================
-
-answer_key = {
-
-    1: "Guido van Rossum",
-    2: "Delhi",
-    3: "MySQL"
-
-}
-
-
-# =====================================================
-# GRADE FUNCTION
-# =====================================================
-
-def calculate_grade(percentage):
-
-    if percentage >= 90:
-        return "A+"
-
-    elif percentage >= 75:
-        return "A"
-
-    elif percentage >= 60:
-        return "B"
-
-    elif percentage >= 50:
-        return "C"
-
-    else:
-        return "F"
-
-
-# =====================================================
-# PROFESSIONAL CSS
-# =====================================================
-
-css = """
+# ---------------- CSS ---------------- #
+st.markdown("""
 <style>
 
-body {
-    margin:0;
-    background: linear-gradient(135deg, #1d2b64, #f8cdda);
-    font-family: Arial;
+.stApp {
+    background: linear-gradient(to right, #1e3c72, #2a5298);
 }
 
-.container {
+.title {
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+}
 
-    width: 500px;
+.login-box {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    width: 400px;
     margin: auto;
-    margin-top: 80px;
+    margin-top: 100px;
+}
+
+.timer-box {
+    background: red;
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.question-box {
     background: white;
     padding: 30px;
     border-radius: 15px;
 }
 
-.exam {
-
-    width: 900px;
-    margin: auto;
-    margin-top: 40px;
+.logo-box {
     background: white;
-    padding: 30px;
+    padding: 20px;
     border-radius: 15px;
-}
-
-.center {
     text-align: center;
 }
 
-.question {
-
-    background: #f2f4ff;
-    padding: 15px;
-    margin-top: 15px;
+div.stButton > button {
+    display: block;
+    margin: auto;
+    background-color: #2a5298;
+    color: white;
+    padding: 10px 40px;
     border-radius: 10px;
 }
 
-button {
-
-    padding: 12px 40px;
-    background: linear-gradient(90deg, #ff512f, #dd2476);
-    color: white;
-    border: none;
-    border-radius: 25px;
-    font-size: 16px;
-}
-
-.pass {
-    color: green;
-    font-size: 22px;
-}
-
-.fail {
-    color: red;
-    font-size: 22px;
-}
-
-.grade {
-    font-size: 20px;
-    color: blue;
-}
-
 </style>
-"""
+""", unsafe_allow_html=True)
+
+# ---------------- STUDENTS ---------------- #
+students = {
+    "CSE001": {"password": "pass001", "name": "Rahul", "branch": "CSE"},
+    "CSE002": {"password": "pass002", "name": "Anitha", "branch": "CSE"},
+}
+
+# ---------------- QUESTIONS ---------------- #
+questions = [
+    {
+        "question": "Which library is used for Machine Learning?",
+        "options": ["NumPy", "Pandas", "Scikit-learn", "Matplotlib"],
+        "answer": "Scikit-learn"
+    },
+    {
+        "question": "Which function trains ML model?",
+        "options": ["fit()", "train()", "learn()", "build()"],
+        "answer": "fit()"
+    }
+]
+
+# ---------------- SESSION ---------------- #
+if "logged_in" not in st.session_state:
+    st.session_state.logged_in = False
+
+if "start_time" not in st.session_state:
+    st.session_state.start_time = None
 
 
-# =====================================================
-# LOGIN PAGE
-# =====================================================
+# ---------------- LOGIN ---------------- #
+if not st.session_state.logged_in:
 
-@app.route("/", methods=["GET", "POST"])
-def login():
+    st.markdown('<h1 class="title">ONLINE EXAM SYSTEM</h1>', unsafe_allow_html=True)
 
-    if request.method == "POST":
+    st.markdown('<div class="login-box">', unsafe_allow_html=True)
 
-        username = request.form["username"]
-        password = request.form["password"]
+    username = st.text_input("Username")
+    password = st.text_input("Password", type="password")
+
+    if st.button("Login"):
 
         if username in students and students[username]["password"] == password:
 
-            session["user"] = username
+            st.session_state.logged_in = True
+            st.session_state.username = username
+            st.session_state.start_time = time.time()
 
-            return redirect("/exam")
+            st.success("Login Success")
+            st.rerun()
 
         else:
+            st.error("Invalid login")
 
-            return css + """
-
-            <div class="container center">
-
-            <h2>Invalid Login</h2>
-
-            <a href="/"><button>Try Again</button></a>
-
-            </div>
-            """
-
-    return css + """
-
-    <div class="container">
-
-    <h2 class="center">Online Exam Login</h2>
-
-    <form method="post">
-
-    Username:<br>
-    <input type="text" name="username" required><br><br>
-
-    Password:<br>
-    <input type="password" name="password" required><br><br>
-
-    <div class="center">
-    <button type="submit">Login</button>
-    </div>
-
-    </form>
-
-    </div>
-    """
+    st.markdown('</div>', unsafe_allow_html=True)
 
 
-# =====================================================
-# EXAM PAGE
-# =====================================================
+# ---------------- EXAM PAGE ---------------- #
+else:
 
-@app.route("/exam", methods=["GET", "POST"])
-def exam():
+    st.markdown('<h1 class="title">QUESTION PAPER</h1>', unsafe_allow_html=True)
 
-    if "user" not in session:
-        return redirect("/")
+    col1, col2, col3 = st.columns([1,3,1])
 
-    student = students[session["user"]]
+    # TIMER
+    with col1:
 
-    if request.method == "POST":
+        remaining = int(1800 - (time.time() - st.session_state.start_time))
 
-        score = 0
+        mins = remaining // 60
+        secs = remaining % 60
 
-        for qno in questions:
-
-            ans = request.form.get(f"q{qno}")
-
-            if ans == answer_key[qno]:
-
-                score += 1
-
-        total = len(questions)
-
-        percentage = (score / total) * 100
-
-        grade = calculate_grade(percentage)
-
-        result = "PASS" if percentage >= 50 else "FAIL"
-
-        result_class = "pass" if result == "PASS" else "fail"
-
-        return css + f"""
-
-        <div class="container center">
-
-        <h2>Exam Result</h2>
-
-        Name: {student['name']}<br><br>
-
-        Department: {student['dept']}<br><br>
-
-        Roll No: {student['roll']}<br><br>
-
-        Score: {score}/{total}<br><br>
-
-        Percentage: {percentage:.2f}%<br><br>
-
-        <div class="grade">Grade: {grade}</div><br>
-
-        <div class="{result_class}">Result: {result}</div><br>
-
-        <a href="/logout"><button>Logout</button></a>
-
+        st.markdown(f"""
+        <div class="timer-box">
+        ⏱ Time Left<br>
+        {mins:02d}:{secs:02d}
         </div>
-        """
+        """, unsafe_allow_html=True)
 
-    html = css + """
+    # QUESTIONS
+    with col2:
 
-    <div class="exam">
+        st.markdown('<div class="question-box">', unsafe_allow_html=True)
 
-    <h2 class="center">Question Paper</h2>
+        answers = {}
 
-    <form method="post">
-    """
+        for i, q in enumerate(questions):
 
-    for qno, q in questions.items():
+            st.write(f"Q{i+1}. {q['question']}")
 
-        html += f"""
+            answers[i] = st.radio("", q["options"], key=i)
 
-        <div class="question">
+        if st.button("Submit Exam"):
 
-        <b>Q{qno}. {q['text']}</b><br><br>
-        """
+            score = 0
 
-        for opt in q["options"]:
+            for i, q in enumerate(questions):
 
-            html += f"""
+                if answers[i] == q["answer"]:
+                    score += 1
 
-            <input type="radio" name="q{qno}" value="{opt}" required> {opt}<br>
-            """
+            student = students[st.session_state.username]
 
-        html += "</div>"
+            st.success(f"""
+Name: {student['name']}
+Branch: {student['branch']}
+Score: {score}/{len(questions)}
+Result: {"PASS" if score>=1 else "FAIL"}
+""")
 
-    html += """
+        st.markdown('</div>', unsafe_allow_html=True)
 
-    <br>
-    <div class="center">
-    <button type="submit">Submit Answer Sheet</button>
-    </div>
+    # LOGO
+    with col3:
 
-    </form>
+        st.markdown('<div class="logo-box">', unsafe_allow_html=True)
 
-    </div>
-    """
+        st.image("https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg")
 
-    return html
-
-
-# =====================================================
-# LOGOUT
-# =====================================================
-
-@app.route("/logout")
-def logout():
-
-    session.clear()
-
-    return redirect("/")
-
-
-# =====================================================
-# RUN
-# =====================================================
-
-if __name__ == "__main__":
-
-    app.run()
+        st.markdown('</div>', unsafe_allow_html=True)
