@@ -4,10 +4,10 @@ import openpyxl
 import os
 
 app = Flask(__name__)
-app.secret_key = "secret123"
+app.secret_key = "exam_system_secret"
 
 EXCEL_FILE = "results.xlsx"
-EXAM_TIME = 1800
+EXAM_DURATION = 1800   # 30 minutes
 
 
 # =====================================================
@@ -19,18 +19,19 @@ if not os.path.exists(EXCEL_FILE):
     wb = openpyxl.Workbook()
     ws = wb.active
 
-    ws.title = "Results"
+    ws.title = "Exam Results"
 
     ws.append([
         "Username",
         "Name",
         "Department",
-        "Roll",
+        "Roll No",
         "Score",
         "Total",
         "Percentage",
         "Grade",
-        "Result"
+        "Result",
+        "Time"
     ])
 
     wb.save(EXCEL_FILE)
@@ -40,28 +41,29 @@ if not os.path.exists(EXCEL_FILE):
 # SAVE RESULT
 # =====================================================
 
-def save_result(user, student, score, total, percent, grade, result):
+def save_result(username, student, score, total, percent, grade, result):
 
     wb = openpyxl.load_workbook(EXCEL_FILE)
     ws = wb.active
 
     ws.append([
-        user,
+        username,
         student["name"],
         student["dept"],
         student["roll"],
         score,
         total,
-        percent,
+        round(percent,2),
         grade,
-        result
+        result,
+        time.strftime("%Y-%m-%d %H:%M:%S")
     ])
 
     wb.save(EXCEL_FILE)
 
 
 # =====================================================
-# STUDENTS
+# STUDENTS AUTO GENERATE
 # =====================================================
 
 students = {}
@@ -70,12 +72,24 @@ for i in range(1,121):
 
     students[f"student{i}"] = {
 
-        "password":f"pass{i}",
-        "name":f"Student {i}",
-        "dept":"CSE",
-        "roll":f"CSE2025{i:03}"
+        "password": f"pass{i}",
+        "name": f"Student {i}",
+        "dept": "CSE",
+        "roll": f"CSE2025{i:03}"
 
     }
+
+
+# custom student
+
+students["sahasra"] = {
+
+    "password":"1234",
+    "name":"Sahasra Kosetti",
+    "dept":"BCA Data Science",
+    "roll":"2347390190"
+
+}
 
 
 # =====================================================
@@ -84,20 +98,30 @@ for i in range(1,121):
 
 questions = {
 
-1:{
-"text":"Python developed by?",
-"options":["Dennis Ritchie","Guido van Rossum","James Gosling","Mark"]
-},
+    1:{
+        "text":"Which protocol is secure?",
+        "options":["HTTP","HTTPS","FTP","SMTP"]
+    },
 
-2:{
-"text":"Secure protocol?",
-"options":["HTTP","HTTPS","FTP","SMTP"]
-},
+    2:{
+        "text":"Binary search complexity?",
+        "options":["O(n)","O(log n)","O(n log n)","O(1)"]
+    },
 
-3:{
-"text":"FIFO structure?",
-"options":["Stack","Queue","Tree","Graph"]
-}
+    3:{
+        "text":"FIFO structure?",
+        "options":["Stack","Queue","Tree","Graph"]
+    },
+
+    4:{
+        "text":"Python creator?",
+        "options":["Dennis Ritchie","Guido van Rossum","James Gosling","Mark"]
+    },
+
+    5:{
+        "text":"Database example?",
+        "options":["Python","MySQL","HTML","CSS"]
+    }
 
 }
 
@@ -108,18 +132,20 @@ questions = {
 
 answer_key = {
 
-1:"Guido van Rossum",
-2:"HTTPS",
-3:"Queue"
+    1:"HTTPS",
+    2:"O(log n)",
+    3:"Queue",
+    4:"Guido van Rossum",
+    5:"MySQL"
 
 }
 
 
 # =====================================================
-# GRADE
+# GRADE FUNCTION
 # =====================================================
 
-def get_grade(p):
+def grade(p):
 
     if p>=90:return "A+"
     elif p>=75:return "A"
@@ -129,7 +155,7 @@ def get_grade(p):
 
 
 # =====================================================
-# CSS
+# PROFESSIONAL CSS + TIMER SCRIPT
 # =====================================================
 
 css = """
@@ -137,100 +163,126 @@ css = """
 <style>
 
 body{
-font-family:Arial;
-background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
 margin:0;
+font-family:Segoe UI;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
 }
 
+/* LOGIN */
+
 .login{
-background:white;
+
 width:400px;
 margin:auto;
 margin-top:120px;
-padding:30px;
-border-radius:10px;
+background:white;
+padding:40px;
+border-radius:12px;
 }
 
 .center{text-align:center;}
 
+input{
+
+width:100%;
+padding:12px;
+margin-top:10px;
+margin-bottom:20px;
+
+}
+
 button{
-padding:10px 30px;
+
+padding:12px 40px;
 background:#ff512f;
 color:white;
 border:none;
-border-radius:20px;
+border-radius:25px;
+
 }
 
+
+/* EXAM */
+
 .exam{
+
 display:flex;
 justify-content:center;
 gap:40px;
 margin-top:20px;
+
 }
 
 .logo img{
-width:120px;
-}
 
-.paper{
-background:white;
-padding:20px;
-width:600px;
-border-radius:10px;
+width:140px;
+
 }
 
 .timer{
+
 color:white;
-font-size:25px;
+font-size:28px;
+
+}
+
+.paper{
+
+background:white;
+padding:30px;
+border-radius:12px;
+width:700px;
+
 }
 
 .question{
-margin-top:15px;
-}
 
-.option{
-margin-left:15px;
+margin-top:15px;
+
 }
 
 .result{
-background:white;
+
 width:400px;
 margin:auto;
 margin-top:100px;
-padding:20px;
-border-radius:10px;
+background:white;
+padding:30px;
+border-radius:12px;
 text-align:center;
+
 }
 
-.pass{color:green;}
-.fail{color:red;}
+.pass{color:green;font-size:22px;}
+.fail{color:red;font-size:22px;}
+.grade{color:blue;font-size:20px;}
 
 </style>
 
 
 <script>
 
-function timer(sec){
+function startTimer(duration){
 
-let t=sec;
+let timer=duration;
 
 setInterval(function(){
 
-let m=parseInt(t/60)
-let s=parseInt(t%60)
+let m=parseInt(timer/60)
+let s=parseInt(timer%60)
 
-if(m<10)m="0"+m
-if(s<10)s="0"+s
+m=m<10?"0"+m:m
+s=s<10?"0"+s:s
 
 document.getElementById("timer").innerHTML=m+":"+s
 
-if(t<=0){
+if(timer<=0){
 
 document.getElementById("examForm").submit()
 
 }
 
-t--
+timer--
 
 },1000)
 
@@ -242,7 +294,7 @@ t--
 
 
 # =====================================================
-# LOGIN
+# LOGIN PAGE
 # =====================================================
 
 @app.route("/",methods=["GET","POST"])
@@ -264,15 +316,15 @@ def login():
 
 <div class="login">
 
-<h2 class="center">Login</h2>
+<h2 class="center">Student Login</h2>
 
 <form method="post">
 
-Username<br>
-<input name="username"><br><br>
+Username
+<input name="username" required>
 
-Password<br>
-<input type="password" name="password"><br><br>
+Password
+<input type="password" name="password" required>
 
 <div class="center">
 <button>Login</button>
@@ -286,7 +338,7 @@ Password<br>
 
 
 # =====================================================
-# EXAM
+# EXAM PAGE
 # =====================================================
 
 @app.route("/exam",methods=["GET","POST"])
@@ -295,9 +347,15 @@ def exam():
     if "user" not in session:
         return redirect("/")
 
-    student = students[session["user"]]
+    student=students[session["user"]]
 
-    remain = EXAM_TIME - int(time.time() - session["start"])
+    elapsed=time.time()-session["start"]
+
+    remaining=int(EXAM_DURATION-elapsed)
+
+    if remaining<=0:
+
+        return redirect("/submit")
 
     if request.method=="POST":
 
@@ -305,44 +363,47 @@ def exam():
 
         for q in questions:
 
-            if request.form.get(f"q{q}") == answer_key[q]:
-
+            if request.form.get(f"q{q}")==answer_key[q]:
                 score+=1
 
         total=len(questions)
 
-        percent=int(score/total*100)
+        percent=(score/total)*100
 
-        grade=get_grade(percent)
+        g=grade(percent)
 
         result="PASS" if percent>=50 else "FAIL"
 
-        save_result(session["user"],student,score,total,percent,grade,result)
+        save_result(session["user"],student,score,total,percent,g,result)
 
         return css+f"""
 
 <div class="result">
 
-<h2>Result</h2>
+<h2>Exam Result</h2>
 
-Name: {student['name']}<br>
-Dept: {student['dept']}<br>
+Name: {student['name']}<br><br>
+Dept: {student['dept']}<br><br>
 Roll: {student['roll']}<br><br>
 
-Score: {score}/{total}<br>
-Percentage: {percent}%<br>
-Grade: {grade}<br>
+Score: {score}/{total}<br><br>
 
-<h3 class="{'pass' if result=='PASS' else 'fail'}">{result}</h3>
+Percentage: {percent:.2f}%<br><br>
+
+<div class="grade">Grade: {g}</div><br>
+
+<div class="{'pass' if result=='PASS' else 'fail'}">
+{result}
+</div>
 
 </div>
 
 """
 
 
-    html = css+f"""
+    html=css+f"""
 
-<body onload="timer({remain})">
+<body onload="startTimer({remaining})">
 
 <div class="exam">
 
@@ -351,7 +412,6 @@ Grade: {grade}<br>
 <img src="/static/college_logo.png">
 
 </div>
-
 
 <div class="paper">
 
@@ -362,16 +422,15 @@ Grade: {grade}<br>
 """
 
 
-    for q in questions:
+    for q,qdata in questions.items():
 
-        html+=f"<div class='question'><b>Q{q}. {questions[q]['text']}</b><br>"
+        html+=f"<div class='question'><b>Q{q}. {qdata['text']}</b><br>"
 
-        for opt in questions[q]["options"]:
+        for opt in qdata["options"]:
 
             html+=f"""
-<label class="option">
-<input type="radio" name="q{q}" value="{opt}"> {opt}
-</label><br>
+<input type="radio" name="q{q}" value="{opt}" required>
+{opt}<br>
 """
 
         html+="</div>"
@@ -379,16 +438,16 @@ Grade: {grade}<br>
 
     html+="""
 
+
 <br>
 
 <div class="center">
-<button>Submit</button>
+<button>Submit Exam</button>
 </div>
 
 </form>
 
 </div>
-
 
 <div class="timer">
 
@@ -397,7 +456,6 @@ Time Left<br>
 <span id="timer">30:00</span>
 
 </div>
-
 
 </div>
 
