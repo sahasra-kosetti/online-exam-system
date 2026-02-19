@@ -6,7 +6,8 @@ import os
 app = Flask(__name__)
 app.secret_key = "exam_system_secret"
 
-EXCEL_FILE = "results.xlsx"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+EXCEL_FILE = os.path.join(BASE_DIR, "results.xlsx")
 EXAM_DURATION = 1800   # 30 minutes
 
 
