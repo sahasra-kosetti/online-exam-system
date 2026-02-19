@@ -1,12 +1,64 @@
 from flask import Flask, request, redirect, session
 import time
+import openpyxl
+import os
 
 app = Flask(__name__)
 app.secret_key = "exam_system_secret"
 
+EXCEL_FILE = "results.xlsx"
+
 
 # =====================================================
-# AUTO GENERATE 120 STUDENTS
+# CREATE EXCEL FILE IF NOT EXISTS
+# =====================================================
+
+if not os.path.exists(EXCEL_FILE):
+
+    wb = openpyxl.Workbook()
+    ws = wb.active
+
+    ws.append([
+        "Username",
+        "Name",
+        "Department",
+        "Roll No",
+        "Score",
+        "Total",
+        "Percentage",
+        "Grade",
+        "Result"
+    ])
+
+    wb.save(EXCEL_FILE)
+
+
+# =====================================================
+# SAVE RESULT TO EXCEL
+# =====================================================
+
+def save_result(username, student, score, total, percent, grade, result):
+
+    wb = openpyxl.load_workbook(EXCEL_FILE)
+    ws = wb.active
+
+    ws.append([
+        username,
+        student["name"],
+        student["dept"],
+        student["roll"],
+        score,
+        total,
+        percent,
+        grade,
+        result
+    ])
+
+    wb.save(EXCEL_FILE)
+
+
+# =====================================================
+# STUDENTS
 # =====================================================
 
 students = {}
@@ -81,7 +133,7 @@ def calculate_grade(p):
 
 
 # =====================================================
-# PROFESSIONAL CSS
+# CSS
 # =====================================================
 
 css = """
@@ -95,8 +147,6 @@ background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
 color:white;
 }
 
-/* LOGIN */
-
 .login-box{
 
 width:400px;
@@ -106,7 +156,6 @@ background:white;
 color:black;
 padding:40px;
 border-radius:15px;
-box-shadow:0 0 20px rgba(0,0,0,0.4);
 }
 
 .center{text-align:center;}
@@ -124,40 +173,39 @@ border:1px solid gray;
 button{
 
 padding:12px 40px;
-background: linear-gradient(90deg,#ff512f,#dd2476);
+background:#ff512f;
 color:white;
 border:none;
 border-radius:25px;
-font-size:16px;
 cursor:pointer;
 }
-
-button:hover{
-
-background: linear-gradient(90deg,#dd2476,#ff512f);
-
-}
-
-
-/* EXAM LAYOUT */
 
 .exam-container{
 
 display:flex;
 justify-content:center;
 margin-top:30px;
+gap:20px;
+}
 
+.logo{
+
+width:200px;
+background:white;
+color:black;
+padding:20px;
+border-radius:15px;
+text-align:center;
 }
 
 .timer{
 
 width:200px;
-background:#ff4b4b;
+background:red;
 padding:20px;
 border-radius:15px;
 text-align:center;
 font-size:22px;
-height:100px;
 }
 
 .question-area{
@@ -167,17 +215,6 @@ background:white;
 color:black;
 padding:30px;
 border-radius:15px;
-margin-left:20px;
-margin-right:20px;
-}
-
-.logo{
-
-width:200px;
-background:white;
-padding:20px;
-border-radius:15px;
-text-align:center;
 }
 
 .question{
@@ -193,6 +230,32 @@ border-radius:10px;
 .grade{color:blue;font-size:20px;}
 
 </style>
+
+<script>
+
+function startTimer(duration) {
+
+let timer = duration;
+
+setInterval(function () {
+
+let minutes = parseInt(timer / 60, 10)
+let seconds = parseInt(timer % 60, 10)
+
+minutes = minutes < 10 ? "0" + minutes : minutes;
+seconds = seconds < 10 ? "0" + seconds : seconds;
+
+document.getElementById("timer").textContent = minutes + ":" + seconds;
+
+if (--timer < 0) {
+timer = 0;
+}
+
+}, 1000);
+
+}
+
+</script>
 
 """
 
@@ -216,29 +279,19 @@ def login():
 
             return redirect("/exam")
 
-        else:
-
-            return css+"""
-
-            <div class="login-box center">
-            Invalid Login<br><br>
-            <a href="/"><button>Retry</button></a>
-            </div>
-            """
-
     return css+"""
 
     <div class="login-box">
 
-    <h2 class="center">Online Exam Login</h2>
+    <h2 class="center">Exam Login</h2>
 
     <form method="post">
 
     Username
-    <input name="username" required>
+    <input name="username">
 
     Password
-    <input type="password" name="password" required>
+    <input type="password" name="password">
 
     <div class="center">
     <button>Login</button>
@@ -251,7 +304,7 @@ def login():
 
 
 # =====================================================
-# EXAM PAGE
+# EXAM
 # =====================================================
 
 @app.route("/exam", methods=["GET","POST"])
@@ -261,13 +314,6 @@ def exam():
         return redirect("/")
 
     student=students[session["user"]]
-
-    # TIMER
-    elapsed=time.time()-session["start"]
-    remaining=int(1800-elapsed)
-
-    mins=remaining//60
-    secs=remaining%60
 
     if request.method=="POST":
 
@@ -279,111 +325,72 @@ def exam():
                 score+=1
 
         total=len(questions)
-
         percent=(score/total)*100
-
         grade=calculate_grade(percent)
-
         result="PASS" if percent>=50 else "FAIL"
 
-        cls="pass" if result=="PASS" else "fail"
+        save_result(session["user"], student, score, total, percent, grade, result)
 
         return css+f"""
 
         <div class="login-box center">
 
-        <h2>Result</h2>
-
-        Name: {student['name']}<br><br>
-
-        Dept: {student['dept']}<br><br>
-
-        Roll: {student['roll']}<br><br>
-
-        Score: {score}/{total}<br><br>
-
-        Percentage: {percent:.2f}%<br><br>
-
-        <div class="grade">Grade: {grade}</div><br>
-
-        <div class="{cls}">Result: {result}</div>
-
-        <br>
-
-        <a href="/logout"><button>Logout</button></a>
+        Name: {student['name']}<br>
+        Dept: {student['dept']}<br>
+        Roll: {student['roll']}<br>
+        Score: {score}/{total}<br>
+        Percentage: {percent:.2f}%<br>
+        Grade: {grade}<br>
+        Result: {result}
 
         </div>
         """
 
-    html=css+f"""
+    html=css+"""
+
+    <body onload="startTimer(1800)">
 
     <div class="exam-container">
 
-    <div class="timer">
+    <div class="logo">
 
-    Time Left<br>
-
-    {mins:02}:{secs:02}
+    <img src="YOUR_LOGO.png" width="150">
 
     </div>
 
     <div class="question-area">
 
-    <h2 class="center">Adhoc Network Tech</h2>
+    <h2 class="center">Question Paper</h2>
 
     <form method="post">
     """
 
     for qno,q in questions.items():
 
-        html+=f"<div class='question'><b>Q{qno}. {q['text']}</b><br>"
+        html+=f"<div class='question'><b>{q['text']}</b><br>"
 
         for opt in q["options"]:
 
-            html+=f"<input type='radio' name='q{qno}' value='{opt}' required> {opt}<br>"
+            html+=f"<input type='radio' name='q{qno}' value='{opt}' required>{opt}<br>"
 
         html+="</div>"
 
-    html+="""
+    html+="""<br><div class="center"><button>Submit</button></div></form></div>
 
-    <br>
+    <div class="timer">
 
-    <div class="center">
+    Time Left<br>
 
-    <button>Submit</button>
-
-    </div>
-
-    </form>
-
-    </div>
-
-    <div class="logo">
-
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" width="150">
-
-    <br><br>
-
-    College Logo
+    <span id="timer">30:00</span>
 
     </div>
 
     </div>
+
+    </body>
     """
 
     return html
-
-
-# =====================================================
-# LOGOUT
-# =====================================================
-
-@app.route("/logout")
-def logout():
-
-    session.clear()
-
-    return redirect("/")
 
 
 # =====================================================
