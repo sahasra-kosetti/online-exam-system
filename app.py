@@ -516,7 +516,7 @@ def exam():
 
     <div class="logo">
 
-    <img src="YOUR_LOGO.png" width="150">
+    <img src="college_logo.png" width="150">
 
     </div>
 
