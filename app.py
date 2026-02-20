@@ -68,7 +68,7 @@ def save_result(username, student, score, total, percent, grade, result):
 
 students = {
 
-" D Pravallika":{
+"D Pravallika":{
     "password":"7894",
     "name":"D.Pravallika",
     "dept":"BCA Data Science",
@@ -117,20 +117,20 @@ students = {
     "roll":"2347390453"
 },
 
-"Mrudula ":{
+"Mrudula":{
     "password":"9856",
     "name":" P. Mrudula ",
     "dept":"BCA Data Science",
     "roll":" 2347390537"
 },
-" M Surekha":{
+"M Surekha":{
     "password":"5632",
     "name":" M.Surekha",
     "dept":"BCA Data Science",
     "roll":"2347390168"
 },
 
-" P Lalitha":{
+"P Lalitha":{
     "password":"2587",
     "name":" P. Lalitha",
     "dept":"BCA Data Science",
@@ -143,7 +143,7 @@ students = {
     "dept":"BCA Data Science",
     "roll":"2347390616"
 },
-"Venkata Lakshmi ":{
+"Venkata Lakshmi":{
     "password":"6354",
     "name":"K. Venkata Lakshmi ",
     "dept":"BCA Data Science",
@@ -157,13 +157,13 @@ students = {
     "roll":" 2347390701"
 },
 
-"Jnana Deepthi ":{
+"Jnana Deepthi":{
     "password":"2587",
     "name":"K.Jnana Deepthi ",
     "dept":"BCA Data Science",
     "roll":"2347390592"
 },
-" B Reshma":{
+"B Reshma":{
     "password":"3214",
     "name":"B. Reshma",
     "dept":"BCA Data Science",
@@ -177,7 +177,7 @@ students = {
     "roll":"2347390628"
 },
 
-"P meghana ":{
+"P meghana":{
     "password":"8547",
     "name":"P.s.s.meghana ",
     "dept":"BCA Data Science",
@@ -190,7 +190,7 @@ students = {
     "roll":"2347390612"
 },
 
-"Manogna ":{
+"Manogna":{
     "password":"6523",
     "name":"Alla Manogna ",
     "dept":"BCA Data Science",
@@ -237,7 +237,7 @@ students = {
     "dept":"BCA Data Science",
     "roll":"2347390663"
 },
-" Nissi Pravalika":{
+"Nissi Pravalika":{
     "password":"7894",
     "name":"BARLANKI NISSI PRAVALLIKA",
     "dept":"BCA Data Science",
@@ -269,7 +269,7 @@ students = {
     "dept":"BCA Data Science",
     "roll":"2347390375"
 },
-"Ashrita ":{
+"Ashrita":{
     "password":"5874",
     "name":"N.Ashrita",
     "dept":"BCA Data Science",
@@ -287,7 +287,7 @@ students = {
     "dept":"BCA Data Science",
     "roll":"2347392179"
 },
-"Moksha ":{
+"Moksha":{
     "password":"6345",
     "name":"Ch. Moksha",
     "dept":"BCA Data Science",
@@ -299,7 +299,7 @@ students = {
     "dept":"BCA Data Science",
     "roll":"2347390387"
 },
-"R Keerthi ":{
+"R Keerthi":{
     "password":"7913",
     "name":"R . Keerthi ",
     "dept":"BCA Data Science",
@@ -330,7 +330,7 @@ students = {
     "dept":"BCA Data Science",
     "roll":"2347390329"
 },
-" B Jyothi":{
+"B Jyothi":{
     "password":"6374",
     "name":" Boddu Nirmala Jyothi ",
     "dept":"BCA Data Science",
@@ -354,7 +354,7 @@ students = {
     "dept":"BCA Data Science",
     "roll":"2347390533"
 },
-" A Mounika":{
+"A Mounika":{
     "password":"9707",
     "name":"Aari Mounika Devi",
     "dept":"BCA Data Science",
@@ -366,7 +366,7 @@ students = {
     "dept":"BSC Computer Science",
     "roll":"2347390312"
 },
-" D Lavanya":{
+"D Lavanya":{
     "password":"6574",
     "name":"LAVANYA DOMMETI ",
     "dept":"BSC Computer Science",
@@ -408,7 +408,7 @@ students = {
     "dept":"BSC Computer Science",
     "roll":"2347390039"
 },
-" Sahitya":{
+"Sahitya":{
     "password":"1478",
     "name":"MULUKURI SAHITYA DEEPIKA",
     "dept":"BSC Computer Science",
@@ -452,7 +452,7 @@ students = {
     "dept":"BSC Computer Science",
     "roll":"2347390543"
 },
-" Mounika":{
+"Mounika":{
     "password":"4369",
     "name":"MOUNIKA ВОККА",
     "dept":"BSC Computer Science",
@@ -495,7 +495,7 @@ students = {
     "dept":"BSC Computer Science",
     "roll":"2347390555"
 },
-" Veera Divya":{
+"Veera Divya":{
     "password":"2019",
     "name":"VEERA DIVYA EAGALA",
     "dept":"BSC Computer Science",
@@ -532,7 +532,7 @@ students = {
     "dept":"BSC Computer Science",
     "roll":"2347390094"
 },
-" Y Swathi":{
+"Y Swathi":{
     "password":"2002",
     "name":"VEERA SWATHI YALLA",
     "dept":"BSC Computer Science",
@@ -563,7 +563,7 @@ students = {
     "dept":"BSC Computer Science",
     "roll":"2347390359"
 },
-" Akshaya":{
+"Akshaya":{
     "password":"4369",
     "name":"AKSHAYA PULAVARTHY",
     "dept":"BSC Computer Science",
@@ -600,7 +600,7 @@ students = {
     "dept":"BSC Computer Science",
     "roll":"2347390284"
 },
-" Yashmitha":{
+"Yashmitha":{
     "password":"5963",
     "name":"YASHMITHA JYOTHIKA BHAVANI BURRA",
     "dept":"BSC Computer Science",
@@ -672,7 +672,7 @@ students = {
     "dept":"BSC Computer Science",
     "roll":"2347390275"
 },
-" K Mounika":{
+"K Mounika":{
     "password":"3796",
     "name":"MOUNIKA SURYA LAKSHMI KOSURI",
     "dept":"BSC Computer Science",
@@ -708,7 +708,7 @@ students = {
     "dept":"BSC Computer Science",
     "roll":"2347390495"
 },
-" Supriya":{
+"Supriya":{
     "password":"3589",
     "name":"BALA KAMESHWARI SUPRIYA VELUGUBANT",
     "dept":"BSC Computer Science",
