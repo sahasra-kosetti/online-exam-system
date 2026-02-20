@@ -396,7 +396,7 @@ students = {
     "dept":"BSC Computer Science",
     "roll":"2347390020"
 },
-durga":{
+"durga":{
     "password":"6731",
     "name":"DURGA SADHANA GINJALA ",
     "dept":"BSC Computer Science",
@@ -489,7 +489,7 @@ durga":{
     "dept":"BSC Computer Science",
     "roll":"2347390100"
 },
-"satya Sai":{
+"satya_sai":{
     "password":"5789",
     "name":"VENKATA SATYA SAI LAKSHMI MATTAPARTHI",
     "dept":"BSC Computer Science",
@@ -720,7 +720,7 @@ durga":{
     "dept":"BSC Computer Science",
     "roll":"2347390696"
 },
-"sevi":{
+"devi":{
     "password":"3275",
     "name":"DEVI PABBINEEDI",
     "dept":"BSC Computer Science",
