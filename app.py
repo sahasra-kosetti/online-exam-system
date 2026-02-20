@@ -68,7 +68,7 @@ def save_result(username, student, score, total, percent, grade, result):
 
 students = {
 
-"Pravallika":{
+" D Pravallika":{
     "password":"7894",
     "name":"D.Pravallika",
     "dept":"BCA Data Science",
@@ -130,7 +130,7 @@ students = {
     "roll":"2347390168"
 },
 
-"Lalitha":{
+" P Lalitha":{
     "password":"2587",
     "name":" P. Lalitha",
     "dept":"BCA Data Science",
@@ -244,7 +244,7 @@ students = {
     "roll":"2347390245"
 },
 
-"Prasanna":{
+"P Prasanna":{
     "password":"6841",
     "name":"P Naga Prasanna",
     "dept":"BCA Data Science",
@@ -299,7 +299,7 @@ students = {
     "dept":"BCA Data Science",
     "roll":"2347390387"
 },
-"R . Keerthi ":{
+"R Keerthi ":{
     "password":"7913",
     "name":"R . Keerthi ",
     "dept":"BCA Data Science",
@@ -311,7 +311,7 @@ students = {
     "dept":"BCA Data Science",
     "roll":"2347390024"
 },
-" Charishma":{
+"Charishma":{
     "password":"3247",
     "name":"Ch. Charishma",
     "dept":"BCA Data Science",
