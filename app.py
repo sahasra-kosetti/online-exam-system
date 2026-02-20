@@ -268,7 +268,7 @@ students = {
     "name":"P.Aparna devi",
     "dept":"BCA Data Science",
     "roll":"2347390085"
-}
+},
 
 # continue till student120
 
