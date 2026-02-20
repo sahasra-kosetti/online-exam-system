@@ -361,6 +361,379 @@ students = {
     "roll":"2347390517"
 },
 
+
+
+
+
+
+"Prasanna":{
+    "password":"3287",
+    "name":"Eerlu Devi Krishna Prasanna ",
+    "dept":"BSC Computer Science",
+    "roll":"2347390312"
+},
+"Lavanya":{
+    "password":"6574",
+    "name":"LAVANYA DOMMETI ",
+    "dept":"BSC Computer Science",
+    "roll":"2347390229"
+},
+"Bindu":{
+    "password":"1047",
+    "name":"BINDU VIJAYA DURGA RAJESWARI MEDASANI",
+    "dept":"BSC Computer Science",
+    "roll":"2347390486"
+},
+"Siva":{
+    "password":"3017",
+    "name":"SIVA SAINI YASALAPU",
+    "dept":"BSC Computer Science",
+    "roll":"2347390429"
+},
+"Santhoshi":{
+    "password":"9014",
+    "name":"SANTHOSHI LAKSHMI GODAVARTHI",
+    "dept":"BSC Computer Science",
+    "roll":"2347390464"
+},
+"Lalitha":{
+    "password":"3501",
+    "name":"LALITHA DEVI TEEDA ",
+    "dept":"BSC Computer Science",
+    "roll":"2347390020"
+},
+"Durga":{
+    "password":"6731",
+    "name":"DURGA SADHANA GINJALA ",
+    "dept":"BSC Computer Science",
+    "roll":"2347390019"
+},
+"Veera mani":{
+    "password":"9301",
+    "name":"VEERA MANI GANDI",
+    "dept":"BSC Computer Science",
+    "roll":"2347390039"
+},
+" Sahitya":{
+    "password":"1478",
+    "name":"MULUKURI SAHITYA DEEPIKA",
+    "dept":"BSC Computer Science",
+    "roll":"2347390366"
+},
+"Tanuja":{
+    "password":"6123",
+    "name":"TANUJA CHOKKA",
+    "dept":"BSC Computer Science",
+    "roll":"2347390546"
+},
+"Anusha":{
+    "password":"3104",
+    "name":"ANUSHA NAGIREDDY",
+    "dept":"BSC Computer Science",
+    "roll":"23473900251"
+},
+"Nandeeswari":{
+    "password":"3204",
+    "name":"NANDEESWARI DODDI ",
+    "dept":"BSC Computer Science",
+    "roll":"2347390241"
+},
+
+"Saranya":{
+    "password":"9314",
+    "name":"VEERA DURGA SARANYA AMARA ",
+    "dept":"BSC Computer Science",
+    "roll":"2347390034"
+},
+
+"Sumana":{
+    "password":"6475",
+    "name":"JHANSI SUMANA KARRI",
+    "dept":"BSC Computer Science",
+    "roll":"2347390031"
+},
+"Madhu Latha":{
+    "password":"1532",
+    "name":"DURGA MADHU LATHA SIRINGI",
+    "dept":"BSC Computer Science",
+    "roll":"2347390543"
+},
+" Mounika":{
+    "password":"4369",
+    "name":"MOUNIKA ВОККА",
+    "dept":"BSC Computer Science",
+    "roll":"2347390223"
+},
+
+"Yamini":{
+    "password":"9547",
+    "name":"YAMINI A",
+    "dept":"BSC Computer Science",
+    "roll":"2347390334"
+},
+"Kavya":{
+    "password":"0369",
+    "name":"SAI DURGA KAVYA ANJALI PANDRADA",
+    "dept":"BSC Computer Science",
+    "roll":"2347390074"
+},
+"Divya":{
+    "password":"0234",
+    "name":"DIVYA DURGA GANGA BHAVANI ACHANTA",
+    "dept":"BSC Computer Science",
+    "roll":"2347390289"
+},
+"Swathi":{
+    "password":"5024",
+    "name":"SWATHI NATRA",
+    "dept":"BSC Computer Science",
+    "roll":"2347390239"
+},
+"Surekha":{
+    "password":"0478",
+    "name":"LAKSHMI SUREKHA KANCHUMENL",
+    "dept":"BSC Computer Science",
+    "roll":"2347390100"
+},
+"Satya Sai":{
+    "password":"5789",
+    "name":"VENKATA SATYA SAI LAKSHMI MATTAPARTHI",
+    "dept":"BSC Computer Science",
+    "roll":"2347390555"
+},
+" Veera Divya:{
+    "password":"2019",
+    "name":"VEERA DIVYA EAGALA",
+    "dept":"BSC Computer Science",
+    "roll":"2347390447"
+},
+"Syamala":{
+    "password":"0358",
+    "name":"SESHA SAI SYAMALA MALLISETTI",
+    "dept":"BSC Computer Science",
+    "roll":"2347390397"
+},
+"Janaki":{
+    "password":"9036",
+    "name":"JANAKI CHAVALA",
+    "dept":"BSC Computer Science",
+    "roll":"2347390541"
+},
+"Aparna":{
+    "password":"6321",
+    "name":" MV SATYA GANGA BHAVANI APARNA SEEKALA",
+    "dept":"BSC Computer Science",
+    "roll":"2347390596"
+},
+
+"Reshma":{
+    "password":"0136",
+    "name":"RESHMA GUTHULA",
+    "dept":"BSC Computer Science",
+    "roll":"2347390038"
+},
+"M Kavya":{
+    "password":"9370",
+    "name":"SRI KAVYA MEDISETTI",
+    "dept":"BSC Computer Science",
+    "roll":"2347390094"
+},
+" Y Swathi":{
+    "password":"2002",
+    "name":"VEERA SWATHI YALLA",
+    "dept":"BSC Computer Science",
+    "roll":"2347390205"
+},
+
+"K Vardhini":{
+    "password":"3701",
+    "name":"VENKATA SATYA VARDHINI KADAL",
+    "dept":"BSC Computer Science",
+    "roll":"2347390240"
+},
+"Umamaheswari":{
+    "password":"3012",
+    "name":"UMAMAHESWARI GEDDADA",
+    "dept":"BSC Computer Science",
+    "roll":"2347390610"
+},
+"D Lalitha":{
+    "password":"3214",
+    "name":"LALITHA DESETTI",
+    "dept":"BSC Computer Science",
+    "roll":"2347390353"
+},
+"Susmitha":{
+    "password":"1532",
+    "name":"V V T SUSMITHA APPANA",
+    "dept":"BSC Computer Science",
+    "roll":"2347390359"
+},
+" Akshaya":{
+    "password":"4369",
+    "name":"AKSHAYA PULAVARTHY",
+    "dept":"BSC Computer Science",
+    "roll":"2347390369"
+},
+
+"Lavanya":{
+    "password":"0735",
+    "name":"LAVANYA KARE",
+    "dept":"BSC Computer Science",
+    "roll":"2347390296"
+},
+"G Lalitha":{
+    "password":"3258",
+    "name":"LALITHA GUTHULA",
+    "dept":"BSC Computer Science",
+    "roll":"2347390424"
+},
+"Pravaallika":{
+    "password":"2005",
+    "name":"PRAVALLIKA BALIJI",
+    "dept":"BSC Computer Science",
+    "roll":"2347390363"
+},
+"Jyothi":{
+    "password":"1478",
+    "name":"JYOTHI NIHARIKA JALLIGAMPALA",
+    "dept":"BSC Computer Science",
+    "roll":"2347390471"
+},
+"Madhavi":{
+    "password":""3259,
+    "name":"MADHAVI SURYA CHANDRIKA MEDA",
+    "dept":"BSC Computer Science",
+    "roll":"2347390284"
+},
+" Yashmitha":{
+    "password":"5963",
+    "name":"YASHMITHA JYOTHIKA BHAVANI BURRA",
+    "dept":"BSC Computer Science",
+    "roll":"2347390327"
+},
+"Jansi":{
+    "password":"0796",
+    "name":"JANSI SRI SATYA ΜΑΤΤΑ",
+    "dept":"BSC Computer Science",
+    "roll":"2347390542"
+},
+"Snehita":{
+    "password":"3896",
+    "name":"SNEHITA REDDY PENUMALLU",
+    "dept":"BSC Computer Science",
+    "roll":"2347390400"
+},
+"K Bhuvaneswari":{
+    "password":"0199",
+    "name":"BHUVANESWARI KARELLA",
+    "dept":"BSC Computer Science",
+    "roll":"2347390597"
+},
+"Amulya":{
+    "password":"5263",
+    "name":"SRI AMULYA KALIDINDI",
+    "dept":"BSC Computer Science",
+    "roll":"2347390086"
+},
+"Uma Pavani":{
+    "password":"3257",
+    "name":"NAGA LAKSHMI UMA PAVANI KANKATALA",
+    "dept":"BSC Computer Science",
+    "roll":"2347390261"
+},
+"Likitha":{
+    "password":"9314",
+    "name":"SRI ANANTHA LAKSHMI LIKITHA POLAVARAPU",
+    "dept":"BSC Computer Science",
+    "roll":"2347390457"
+},
+"Ramya":{
+    "password":"5860",
+    "name":"JAYA RAMYA NAGA JYOTHIKA KORN",
+    "dept":"BSC Computer Science",
+    "roll":"2347390341"
+},
+"Bhuvaneswari:{
+    "password":"1470",
+    "name":"BHUVANESWARI BORA",
+    "dept":"BSC Computer Science",
+    "roll":"2347390540"
+},
+"Satyavathi":{
+    "password":"9874",
+    "name":"SATYAVATHI YEDLA",
+    "dept":"BSC Computer Science",
+    "roll":"2347390613"
+},
+"Padma Priya":{
+    "password":"2580",
+    "name":"PADMA PRIYA SRI MAHA LAKSHMI TAMALAMPUDI",
+    "dept":"BSC Computer Science",
+    "roll":"2347390516"
+},
+"Vijaya":{
+    "password":"3690",
+    "name":"VIJAYA SAI SARANYA CHINTHAKULA",
+    "dept":"BSC Computer Science",
+    "roll":"2347390275"
+},
+" Mounika":{
+    "password":"3796",
+    "name":"MOUNIKA SURYA LAKSHMI KOSURI",
+    "dept":"BSC Computer Science",
+    "roll":"2347390159"
+},
+"Uma devi":{
+    "password":"0845",
+    "name":"Uma devi M",
+    "dept":"BSC Computer Science",
+    "roll":"2347390602"
+},
+"Pushpanjali":{
+    "password":"1428",
+    "name":"PUSHPANJALI MEDAPATI",
+    "dept":"BSC Computer Science",
+    "roll":"2347390117"
+},
+"Sandhya":{
+    "password":"6230",
+    "name":"SANDHYA KONDEPUD",
+    "dept":"BSC Computer Science",
+    "roll":"2347390152"
+},
+"M Aparna":{
+    "password":"7063",
+    "name":"APARNA MARISE",
+    "dept":"BSC Computer Science",
+    "roll":"2347390315"
+},
+"Revathi":{
+    "password":"1733",
+    "name":"REVATHI ADI",
+    "dept":"BSC Computer Science",
+    "roll":"2347390495"
+},
+" Supriya":{
+    "password":"3589",
+    "name":"BALA KAMESHWARI SUPRIYA VELUGUBANT",
+    "dept":"BSC Computer Science",
+    "roll":"2347390438"
+},
+"Roopa":{
+    "password":"8017",
+    "name":"ROOPA VANI PEKETI",
+    "dept":"BSC Computer Science",
+    "roll":"2347390696"
+},
+"Devi":{
+    "password":"3275",
+    "name":"DEVI PABBINEEDI",
+    "dept":"BSC Computer Science",
+    "roll":"2347390662"
+},
+
+    
 # continue till student120
 
 "sahasra":{
