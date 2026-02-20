@@ -68,659 +68,659 @@ def save_result(username, student, score, total, percent, grade, result):
 
 students = {
 
-"D Pravallika":{
+"d_pravallika":{
     "password":"7894",
     "name":"D.Pravallika",
     "dept":"BCA Data Science",
     "roll":"2347390685"
 },
 
-"Amani":{
+"amani":{
     "password":"1235",
     "name":"A. Amani",
     "dept":"BCA Data Science",
     "roll":"BCA2025002"
 },
 
-"Bhargavi":{
+"bhargavi":{
     "password":"1456",
     "name":"K.Bhargavi Satya Durga Devi ",
     "dept":"BCA Data Science",
     "roll":"2347390487"
 },
 
-"Mahalakshmi":{
+"mahalakshmi":{
     "password":"7794",
     "name":" K.Mahalakshmi",
     "dept":"BCA Data Science",
     "roll":"2347390121"
 },
 
-"Y Deepthi":{
+"y_deepthi":{
     "password":"8964",
     "name":"Y.Deepthi Raajitha",
     "dept":"BCA Data Science",
     "roll":"2347390643"
 },
 
-"Madhulika ":{
+"madhulika ":{
     "password":"7852",
     "name":"N.L.Madhulika ",
     "dept":"BCA Data Science",
     "roll":"2347390469"
 },
    
-"Bhavya":{
+"bhavya":{
     "password":"7410",
     "name":"K.Bhavya sri",
     "dept":"BCA Data Science",
     "roll":"2347390453"
 },
 
-"Mrudula":{
+"mrudula":{
     "password":"9856",
     "name":" P. Mrudula ",
     "dept":"BCA Data Science",
     "roll":" 2347390537"
 },
-"M Surekha":{
+"m_surekha":{
     "password":"5632",
     "name":" M.Surekha",
     "dept":"BCA Data Science",
     "roll":"2347390168"
 },
 
-"P Lalitha":{
+"p_lalitha":{
     "password":"2587",
     "name":" P. Lalitha",
     "dept":"BCA Data Science",
     "roll":"2347390360"
 },
 
-"Lini":{
+"lini":{
     "password":"4758",
     "name":" D. Lini Hadassa",
     "dept":"BCA Data Science",
     "roll":"2347390616"
 },
-"Venkata Lakshmi":{
+"venkatalakshmi":{
     "password":"6354",
     "name":"K. Venkata Lakshmi ",
     "dept":"BCA Data Science",
     "roll":"2347390581"
 },
 
-"Nandini Devi":{
+"nandinidevi":{
     "password":"4789",
     "name":" V. Nandini Devi",
     "dept":"BCA Data Science",
     "roll":" 2347390701"
 },
 
-"Jnana Deepthi":{
+"jnana_deepthi":{
     "password":"2587",
     "name":"K.Jnana Deepthi ",
     "dept":"BCA Data Science",
     "roll":"2347390592"
 },
-"B Reshma":{
+"b_reshma":{
     "password":"3214",
     "name":"B. Reshma",
     "dept":"BCA Data Science",
     "roll":" 2347390238"
 },
 
-"Manga Charmila":{
+"manga_charmila":{
     "password":"1645",
     "name":"L. Manga Charmila",
     "dept":"BCA Data Science",
     "roll":"2347390628"
 },
 
-"P meghana":{
+"p_meghana":{
     "password":"8547",
     "name":"P.s.s.meghana ",
     "dept":"BCA Data Science",
     "roll":"2347390478"
 },
-"Swarna":{
+"swarna":{
     "password":"9745",
     "name":"B. Swarna siva durga",
     "dept":"BCA Data Science",
     "roll":"2347390612"
 },
 
-"Manogna":{
+"manogna":{
     "password":"6523",
     "name":"Alla Manogna ",
     "dept":"BCA Data Science",
     "roll":"2347390558"
 },
 
-"Rajeswari":{
+"rajeswari":{
     "password":"6578",
     "name":"Sadanala Bhagyasri Raja Rajeswari Devi ",
     "dept":"BCA Data Science",
     "roll":"2347390700"
 },
-"Sathvika":{
+"sathvika":{
     "password":"9872",
     "name":"K.Sathvika",
     "dept":"BCA Data Science",
     "roll":"2347390532"
 },
 
-"Saniya":{
+"saniya":{
     "password":"3645",
     "name":"Student Name 2",
     "dept":"BCA Data Science",
     "roll":"BCA2025002"
 },
 
-"Teja":{
+"teja":{
     "password":"6874",
     "name":"B. Teja Sri ",
     "dept":"BCA Data Science",
     "roll":"2347390138"
 },
 
-"Suryalakshmi":{
+"suryalakshmi":{
     "password":"2035",
     "name":"Suryalakshmi.E",
     "dept":"BCA Data Science",
     "roll":"2347390477"
 },
 
-"J Meghana":{
+"j_meghana":{
     "password":"9547",
     "name":"JITTUGA MEGHANA ",
     "dept":"BCA Data Science",
     "roll":"2347390663"
 },
-"Nissi Pravalika":{
+"nissi_pravalika":{
     "password":"7894",
     "name":"BARLANKI NISSI PRAVALLIKA",
     "dept":"BCA Data Science",
     "roll":"2347390245"
 },
 
-"P Prasanna":{
+"p_prasanna":{
     "password":"6841",
     "name":"P Naga Prasanna",
     "dept":"BCA Data Science",
     "roll":"2347390169"
 },
 
-"P Aparna":{
+"p_aparna":{
     "password":"6548",
     "name":"P.Aparna devi",
     "dept":"BCA Data Science",
     "roll":"2347390085"
 },
-"Sunitha":{
+"sunitha":{
     "password":"3258",
     "name":"A.Pranaya Sunitha ",
     "dept":"BCA Data Science",
     "roll":"2347390436"
 },
-"Umadevi":{
+"umadevi":{
     "password":"9547",
     "name":"K.Umadevi",
     "dept":"BCA Data Science",
     "roll":"2347390375"
 },
-"Ashrita":{
+"ashrita":{
     "password":"5874",
     "name":"N.Ashrita",
     "dept":"BCA Data Science",
     "roll":"2347390029"
 },
-"Sailaja":{
+"sailaja":{
     "password":"2587",
     "name":"A.Sailaja",
     "dept":"BCA Data Science",
     "roll":"2347390715"
 },
-"Shalini":{
+"shalini":{
     "password":"7414",
     "name":"",
     "dept":"BCA Data Science",
     "roll":"2347392179"
 },
-"Moksha":{
+"moksha":{
     "password":"6345",
     "name":"Ch. Moksha",
     "dept":"BCA Data Science",
     "roll":"2347390710"
 },
-"Neeraja":{
+"neeraja":{
     "password":"3574",
     "name":" V. Neeraja",
     "dept":"BCA Data Science",
     "roll":"2347390387"
 },
-"R Keerthi":{
+"r_keerthi":{
     "password":"7913",
     "name":"R . Keerthi ",
     "dept":"BCA Data Science",
     "roll":"2347390242"
 },
-"Sowmya":{
+"sowmya":{
     "password":"5741",
     "name":"T. S. L. Sowmya",
     "dept":"BCA Data Science",
     "roll":"2347390024"
 },
-"Charishma":{
+"charishma":{
     "password":"3247",
     "name":"Ch. Charishma",
     "dept":"BCA Data Science",
     "roll":"2347390186"
 },
 
-"Nissi Tejaswini":{
+"nissi_tejaswini":{
     "password":"2147",
     "name":"G.Nissi Tejaswini",
     "dept":"BCA Data Science",
     "roll":" 2347390672"
 },
-"Jayasri":{
+"jayasri":{
     "password":"1047",
     "name":"P.Aparna devi",
     "dept":"BCA Data Science",
     "roll":"2347390329"
 },
-"B Jyothi":{
+"b_jyothi":{
     "password":"6374",
     "name":" Boddu Nirmala Jyothi ",
     "dept":"BCA Data Science",
     "roll":" 2347390148"
 },
-"Harika":{
+"harika":{
     "password":"5471",
     "name":"Voleti Harika",
     "dept":"BCA Data Science",
     "roll":"2347390379"
 },
-"Sudeeksha":{
+"sudeeksha":{
     "password":"6474",
     "name":"N.M.S.Sudeeksha",
     "dept":"BCA Data Science",
     "roll":"2347390230"
 },
-"Sahithi":{
+"sahithi":{
     "password":"2471",
     "name":"K . Sahithi Ramani ",
     "dept":"BCA Data Science",
     "roll":"2347390533"
 },
-"A Mounika":{
+"a_mounika":{
     "password":"9707",
     "name":"Aari Mounika Devi",
     "dept":"BCA Data Science",
     "roll":"2347390517"
 },
-"Prasanna":{
+"prasanna":{
     "password":"3287",
     "name":"Eerlu Devi Krishna Prasanna ",
     "dept":"BSC Computer Science",
     "roll":"2347390312"
 },
-"D Lavanya":{
+"d_lavanya":{
     "password":"6574",
     "name":"LAVANYA DOMMETI ",
     "dept":"BSC Computer Science",
     "roll":"2347390229"
 },
-"Bindu":{
+"bindu":{
     "password":"1047",
     "name":"BINDU VIJAYA DURGA RAJESWARI MEDASANI",
     "dept":"BSC Computer Science",
     "roll":"2347390486"
 },
-"Siva":{
+"siva":{
     "password":"3017",
     "name":"SIVA SAINI YASALAPU",
     "dept":"BSC Computer Science",
     "roll":"2347390429"
 },
-"Santhoshi":{
+"santhoshi":{
     "password":"9014",
     "name":"SANTHOSHI LAKSHMI GODAVARTHI",
     "dept":"BSC Computer Science",
     "roll":"2347390464"
 },
-"Lalitha":{
+"lalitha":{
     "password":"3501",
     "name":"LALITHA DEVI TEEDA ",
     "dept":"BSC Computer Science",
     "roll":"2347390020"
 },
-"Durga":{
+durga":{
     "password":"6731",
     "name":"DURGA SADHANA GINJALA ",
     "dept":"BSC Computer Science",
     "roll":"2347390019"
 },
-"Veera mani":{
+"veera_mani":{
     "password":"9301",
     "name":"VEERA MANI GANDI",
     "dept":"BSC Computer Science",
     "roll":"2347390039"
 },
-"Sahitya":{
+"sahitya":{
     "password":"1478",
     "name":"MULUKURI SAHITYA DEEPIKA",
     "dept":"BSC Computer Science",
     "roll":"2347390366"
 },
-"Tanuja":{
+"tanuja":{
     "password":"6123",
     "name":"TANUJA CHOKKA",
     "dept":"BSC Computer Science",
     "roll":"2347390546"
 },
-"Anusha":{
+"anusha":{
     "password":"3104",
     "name":"ANUSHA NAGIREDDY",
     "dept":"BSC Computer Science",
     "roll":"23473900251"
 },
-"Nandeeswari":{
+"nandeeswari":{
     "password":"3204",
     "name":"NANDEESWARI DODDI ",
     "dept":"BSC Computer Science",
     "roll":"2347390241"
 },
 
-"Saranya":{
+"saranya":{
     "password":"9314",
     "name":"VEERA DURGA SARANYA AMARA ",
     "dept":"BSC Computer Science",
     "roll":"2347390034"
 },
 
-"Sumana":{
+"sumana":{
     "password":"6475",
     "name":"JHANSI SUMANA KARRI",
     "dept":"BSC Computer Science",
     "roll":"2347390031"
 },
-"Madhu Latha":{
+"madhu_latha":{
     "password":"1532",
     "name":"DURGA MADHU LATHA SIRINGI",
     "dept":"BSC Computer Science",
     "roll":"2347390543"
 },
-"Mounika":{
+"mounika":{
     "password":"4369",
     "name":"MOUNIKA ВОККА",
     "dept":"BSC Computer Science",
     "roll":"2347390223"
 },
 
-"Yamini":{
+"yamini":{
     "password":"9547",
     "name":"YAMINI A",
     "dept":"BSC Computer Science",
     "roll":"2347390334"
 },
-"Kavya":{
+"kavya":{
     "password":"0369",
     "name":"SAI DURGA KAVYA ANJALI PANDRADA",
     "dept":"BSC Computer Science",
     "roll":"2347390074"
 },
-"Divya":{
+"divya":{
     "password":"0234",
     "name":"DIVYA DURGA GANGA BHAVANI ACHANTA",
     "dept":"BSC Computer Science",
     "roll":"2347390289"
 },
-"Swathi":{
+"swathi":{
     "password":"5024",
     "name":"SWATHI NATRA",
     "dept":"BSC Computer Science",
     "roll":"2347390239"
 },
-"Surekha":{
+"surekha":{
     "password":"0478",
     "name":"LAKSHMI SUREKHA KANCHUMENL",
     "dept":"BSC Computer Science",
     "roll":"2347390100"
 },
-"Satya Sai":{
+"satya Sai":{
     "password":"5789",
     "name":"VENKATA SATYA SAI LAKSHMI MATTAPARTHI",
     "dept":"BSC Computer Science",
     "roll":"2347390555"
 },
-"Veera Divya":{
+"veera_divya":{
     "password":"2019",
     "name":"VEERA DIVYA EAGALA",
     "dept":"BSC Computer Science",
     "roll":"2347390447"
 },
-"Syamala":{
+"syamala":{
     "password":"0358",
     "name":"SESHA SAI SYAMALA MALLISETTI",
     "dept":"BSC Computer Science",
     "roll":"2347390397"
 },
-"Janaki":{
+"janaki":{
     "password":"9036",
     "name":"JANAKI CHAVALA",
     "dept":"BSC Computer Science",
     "roll":"2347390541"
 },
-"Aparna":{
+"aparna":{
     "password":"6321",
     "name":" MV SATYA GANGA BHAVANI APARNA SEEKALA",
     "dept":"BSC Computer Science",
     "roll":"2347390596"
 },
 
-"Reshma":{
+"reshma":{
     "password":"0136",
     "name":"RESHMA GUTHULA",
     "dept":"BSC Computer Science",
     "roll":"2347390038"
 },
-"M Kavya":{
+"m_kavya":{
     "password":"9370",
     "name":"SRI KAVYA MEDISETTI",
     "dept":"BSC Computer Science",
     "roll":"2347390094"
 },
-"Y Swathi":{
+"y_swathi":{
     "password":"2002",
     "name":"VEERA SWATHI YALLA",
     "dept":"BSC Computer Science",
     "roll":"2347390205"
 },
 
-"K Vardhini":{
+"k_vardhini":{
     "password":"3701",
     "name":"VENKATA SATYA VARDHINI KADAL",
     "dept":"BSC Computer Science",
     "roll":"2347390240"
 },
-"Umamaheswari":{
+"umamaheswari":{
     "password":"3012",
     "name":"UMAMAHESWARI GEDDADA",
     "dept":"BSC Computer Science",
     "roll":"2347390610"
 },
-"D Lalitha":{
+"d_lalitha":{
     "password":"3214",
     "name":"LALITHA DESETTI",
     "dept":"BSC Computer Science",
     "roll":"2347390353"
 },
-"Susmitha":{
+"susmitha":{
     "password":"1532",
     "name":"V V T SUSMITHA APPANA",
     "dept":"BSC Computer Science",
     "roll":"2347390359"
 },
-"Akshaya":{
+"akshaya":{
     "password":"4369",
     "name":"AKSHAYA PULAVARTHY",
     "dept":"BSC Computer Science",
     "roll":"2347390369"
 },
 
-"Lavanya":{
+"lavanya":{
     "password":"0735",
     "name":"LAVANYA KARE",
     "dept":"BSC Computer Science",
     "roll":"2347390296"
 },
-"G Lalitha":{
+"g_lalitha":{
     "password":"3258",
     "name":"LALITHA GUTHULA",
     "dept":"BSC Computer Science",
     "roll":"2347390424"
 },
-"Pravallika":{
+"pravallika":{
     "password":"2005",
     "name":"PRAVALLIKA BALIJI",
     "dept":"BSC Computer Science",
     "roll":"2347390363"
 },
-"Jyothi":{
+"jyothi":{
     "password":"1478",
     "name":"JYOTHI NIHARIKA JALLIGAMPALA",
     "dept":"BSC Computer Science",
     "roll":"2347390471"
 },
-"Madhavi":{
+"madhavi":{
     "password":"3259",
     "name":"MADHAVI SURYA CHANDRIKA MEDA",
     "dept":"BSC Computer Science",
     "roll":"2347390284"
 },
-"Yashmitha":{
+"yashmitha":{
     "password":"5963",
     "name":"YASHMITHA JYOTHIKA BHAVANI BURRA",
     "dept":"BSC Computer Science",
     "roll":"2347390327"
 },
-"Jansi":{
+"jansi":{
     "password":"0796",
     "name":"JANSI SRI SATYA ΜΑΤΤΑ",
     "dept":"BSC Computer Science",
     "roll":"2347390542"
 },
-"Snehita":{
+"snehita":{
     "password":"3896",
     "name":"SNEHITA REDDY PENUMALLU",
     "dept":"BSC Computer Science",
     "roll":"2347390400"
 },
-"K Bhuvaneswari":{
+"k_bhuvaneswari":{
     "password":"0199",
     "name":"BHUVANESWARI KARELLA",
     "dept":"BSC Computer Science",
     "roll":"2347390597"
 },
-"Amulya":{
+"amulya":{
     "password":"5263",
     "name":"SRI AMULYA KALIDINDI",
     "dept":"BSC Computer Science",
     "roll":"2347390086"
 },
-"Uma Pavani":{
+"uma_pavani":{
     "password":"3257",
     "name":"NAGA LAKSHMI UMA PAVANI KANKATALA",
     "dept":"BSC Computer Science",
     "roll":"2347390261"
 },
-"Likitha":{
+"likitha":{
     "password":"9314",
     "name":"SRI ANANTHA LAKSHMI LIKITHA POLAVARAPU",
     "dept":"BSC Computer Science",
     "roll":"2347390457"
 },
-"Ramya":{
+"ramya":{
     "password":"5860",
     "name":"JAYA RAMYA NAGA JYOTHIKA KORN",
     "dept":"BSC Computer Science",
     "roll":"2347390341"
 },
-"Bhuvaneswari":{
+"bhuvaneswari":{
     "password":"1470",
     "name":"BHUVANESWARI BORA",
     "dept":"BSC Computer Science",
     "roll":"2347390540"
 },
-"Satyavathi":{
+"satyavathi":{
     "password":"9874",
     "name":"SATYAVATHI YEDLA",
     "dept":"BSC Computer Science",
     "roll":"2347390613"
 },
-"Padma Priya":{
+"padma_priya":{
     "password":"2580",
     "name":"PADMA PRIYA SRI MAHA LAKSHMI TAMALAMPUDI",
     "dept":"BSC Computer Science",
     "roll":"2347390516"
 },
-"Vijaya":{
+"vijaya":{
     "password":"3690",
     "name":"VIJAYA SAI SARANYA CHINTHAKULA",
     "dept":"BSC Computer Science",
     "roll":"2347390275"
 },
-"K Mounika":{
+"k_mounika":{
     "password":"3796",
     "name":"MOUNIKA SURYA LAKSHMI KOSURI",
     "dept":"BSC Computer Science",
     "roll":"2347390159"
 },
-"Uma devi":{
+"uma_devi":{
     "password":"0845",
     "name":"Uma devi M",
     "dept":"BSC Computer Science",
     "roll":"2347390602"
 },
-"Pushpanjali":{
+"pushpanjali":{
     "password":"1428",
     "name":"PUSHPANJALI MEDAPATI",
     "dept":"BSC Computer Science",
     "roll":"2347390117"
 },
-"Sandhya":{
+"sandhya":{
     "password":"6230",
     "name":"SANDHYA KONDEPUD",
     "dept":"BSC Computer Science",
     "roll":"2347390152"
 },
-"M Aparna":{
+"m_aparna":{
     "password":"7063",
     "name":"APARNA MARISE",
     "dept":"BSC Computer Science",
     "roll":"2347390315"
 },
-"Revathi":{
+"revathi":{
     "password":"1733",
     "name":"REVATHI ADI",
     "dept":"BSC Computer Science",
     "roll":"2347390495"
 },
-"Supriya":{
+"supriya":{
     "password":"3589",
     "name":"BALA KAMESHWARI SUPRIYA VELUGUBANT",
     "dept":"BSC Computer Science",
     "roll":"2347390438"
 },
-"Roopa":{
+"roopa":{
     "password":"8017",
     "name":"ROOPA VANI PEKETI",
     "dept":"BSC Computer Science",
     "roll":"2347390696"
 },
-"Devi":{
+"sevi":{
     "password":"3275",
     "name":"DEVI PABBINEEDI",
     "dept":"BSC Computer Science",
