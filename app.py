@@ -6,7 +6,7 @@ import os
 app = Flask(__name__)
 app.secret_key = "exam_system_secret"
 
-EXCEL_FILE = "results.xlsx"
+EXCEL_FILE = os.path.join(os.getcwd(), "results.xlsx")
 EXAM_DURATION = 600   # 10 minutes
 
 
@@ -1114,8 +1114,8 @@ def login():
 
     if request.method=="POST":
 
-        u=request.form["username"]
-        p=request.form["password"]
+        u=request.form["username"].strip()
+        p=request.form["password"].strip()
 
         if u in students and students[u]["password"]==p:
 
