@@ -98,7 +98,7 @@ students = {
 
 "Y.Deepthi Raajitha":{
     "password":"8964",
-    "name":"Y.Deepthi Raajitha":{",
+    "name":"Y.Deepthi Raajitha",
     "dept":"BCA Data Science",
     "roll":"2347390643"
 },
@@ -169,11 +169,11 @@ students = {
     "dept":"BCA Data Science",
     "roll":"2347390592"
 },
-"D.Pravallika":{
+"B. Reshma":{
     "password":"7894",
-    "name":"D.Pravallika",
+    "name":"B. Reshma",
     "dept":"BCA Data Science",
-    "roll":"2347390685"
+    "roll":" 2347390238"
 },
 
 "L. Manga Charmila":{
@@ -183,20 +183,40 @@ students = {
     "roll":"2347390628"
 },
 
-"student3":{
+"P.s.s.meghana ":{
     "password":"pass3",
-    "name":"Student Name 3",
+    "name":"P.s.s.meghana ",
     "dept":"BCA Data Science",
-    "roll":"BCA2025003"
+    "roll":"2347390478"
 },
-"D.Pravallika":{
+"B. Swarna siva durga":{
     "password":"7894",
-    "name":"D.Pravallika",
+    "name":"B. Swarna siva durga",
     "dept":"BCA Data Science",
-    "roll":"2347390685"
+    "roll":"2347390612"
 },
 
-"student2":{
+"Alla Manogna ":{
+    "password":"pass2",
+    "name":"Alla Manogna ",
+    "dept":"BCA Data Science",
+    "roll":"2347390558"
+},
+
+"Sadanala Bhagyasri Raja Rajeswari Devi ":{
+    "password":"pass3",
+    "name":"Sadanala Bhagyasri Raja Rajeswari Devi ",
+    "dept":"BCA Data Science",
+    "roll":"2347390700"
+},
+"K.Sathvika":{
+    "password":"7894",
+    "name":"K.Sathvika",
+    "dept":"BCA Data Science",
+    "roll":"2347390532"
+},
+
+"Md. saniya asad ":{
     "password":"pass2",
     "name":"Student Name 2",
     "dept":"BCA Data Science",
@@ -216,58 +236,38 @@ students = {
     "roll":"2347390685"
 },
 
-"student2":{
+"Suryalakshmi.E":{
     "password":"pass2",
-    "name":"Student Name 2",
+    "name":"Suryalakshmi.E",
     "dept":"BCA Data Science",
-    "roll":"BCA2025002"
+    "roll":"2347390477"
 },
 
-"student3":{
+"JITTUGA MEGHANA ":{
     "password":"pass3",
-    "name":"Student Name 3",
+    "name":"JITTUGA MEGHANA ",
     "dept":"BCA Data Science",
-    "roll":"BCA2025003"
+    "roll":"2347390663"
 },
-"D.Pravallika":{
+" BARLANKI NISSI PRAVALLIKA":{
     "password":"7894",
-    "name":"D.Pravallika",
+    "name":"BARLANKI NISSI PRAVALLIKA",
     "dept":"BCA Data Science",
-    "roll":"2347390685"
+    "roll":"2347390245"
 },
 
-"student2":{
+"P Naga Prasanna":{
     "password":"pass2",
-    "name":"Student Name 2",
+    "name":"P Naga Prasanna",
     "dept":"BCA Data Science",
-    "roll":"BCA2025002"
+    "roll":"2347390169"
 },
 
-"student3":{
+"P.Aparna devi":{
     "password":"pass3",
-    "name":"Student Name 3",
+    "name":"P.Aparna devi",
     "dept":"BCA Data Science",
-    "roll":"BCA2025003"
-},
-"D.Pravallika":{
-    "password":"7894",
-    "name":"D.Pravallika",
-    "dept":"BCA Data Science",
-    "roll":"2347390685"
-},
-
-"student2":{
-    "password":"pass2",
-    "name":"Student Name 2",
-    "dept":"BCA Data Science",
-    "roll":"BCA2025002"
-},
-
-"student3":{
-    "password":"pass3",
-    "name":"Student Name 3",
-    "dept":"BCA Data Science",
-    "roll":"BCA2025003"
+    "roll":"2347390085"
 }
 
 # continue till student120
