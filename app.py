@@ -1288,6 +1288,8 @@ Time Left<br>
 # =====================================================
 # RUN
 # =====================================================
-
+@app.route("/")
+def home():
+    return "Online Exam System Running Successfully"
 if __name__=="__main__":
     app.run(host="0.0.0.0", port=10000)
