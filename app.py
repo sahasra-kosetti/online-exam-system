@@ -360,12 +360,6 @@ students = {
     "dept":"BCA Data Science",
     "roll":"2347390517"
 },
-
-
-
-
-
-
 "Prasanna":{
     "password":"3287",
     "name":"Eerlu Devi Krishna Prasanna ",
@@ -601,7 +595,7 @@ students = {
     "roll":"2347390471"
 },
 "Madhavi":{
-    "password":""3259,
+    "password":"3259",
     "name":"MADHAVI SURYA CHANDRIKA MEDA",
     "dept":"BSC Computer Science",
     "roll":"2347390284"
