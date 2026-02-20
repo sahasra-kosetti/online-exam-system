@@ -7,7 +7,7 @@ app = Flask(__name__)
 app.secret_key = "exam_system_secret"
 
 EXCEL_FILE = "results.xlsx"
-EXAM_DURATION = 1800   # 30 minutes
+EXAM_DURATION = 600   # 10 minutes
 
 
 # =====================================================
@@ -223,11 +223,11 @@ students = {
     "roll":"BCA2025002"
 },
 
-"student3":{
+"B. Teja Sri ":{
     "password":"pass3",
-    "name":"Student Name 3",
+    "name":"B. Teja Sri ",
     "dept":"BCA Data Science",
-    "roll":"BCA2025003"
+    "roll":"2347390138"
 },
 "D.Pravallika":{
     "password":"7894",
@@ -269,6 +269,112 @@ students = {
     "dept":"BCA Data Science",
     "roll":"2347390085"
 },
+"A.Pranaya Sunitha":{
+    "password":"pass3",
+    "name":"A.Pranaya Sunitha ",
+    "dept":"BCA Data Science",
+    "roll":"2347390436"
+},
+"K.Umadevi":{
+    "password":"7894",
+    "name":"K.Umadevi",
+    "dept":"BCA Data Science",
+    "roll":"2347390375"
+},
+
+"N.Ashrita ":{
+    "password":"pass2",
+    "name":"N.Ashrita",
+    "dept":"BCA Data Science",
+    "roll":"2347390029"
+},
+
+"A.Sailaja":{
+    "password":"pass3",
+    "name":"A.Sailaja",
+    "dept":"BCA Data Science",
+    "roll":"2347390715"
+},
+"Shalini Kinthada ":{
+    "password":"7894",
+    "name":"",
+    "dept":"BCA Data Science",
+    "roll":"2347392179"
+},
+
+"Ch. Moksha ":{
+    "password":"pass2",
+    "name":"Ch. Moksha",
+    "dept":"BCA Data Science",
+    "roll":"2347390710"
+},
+
+" V. Neeraja":{
+    "password":"pass3",
+    "name":" V. Neeraja",
+    "dept":"BCA Data Science",
+    "roll":"2347390387"
+},
+"R . Keerthi ":{
+    "password":"7894",
+    "name":"R . Keerthi ",
+    "dept":"BCA Data Science",
+    "roll":"2347390242"
+},
+
+"T. S. L. Sowmya":{
+    "password":"pass2",
+    "name":"T. S. L. Sowmya",
+    "dept":"BCA Data Science",
+    "roll":"2347390024"
+},
+
+"JITTUGA MEGHANA ":{
+    "password":"pass3",
+    "name":"JITTUGA MEGHANA ",
+    "dept":"BCA Data Science",
+    "roll":"2347390663"
+},
+" Ch. Charishma":{
+    "password":"7894",
+    "name":"Ch. Charishma",
+    "dept":"BCA Data Science",
+    "roll":"2347390186"
+},
+
+"G.Nissi Tejaswini":{
+    "password":"pass2",
+    "name":"G.Nissi Tejaswini",
+    "dept":"BCA Data Science",
+    "roll":" 2347390672"
+},
+
+"Yerra Jayasri nirmala priya":{
+    "password":"pass3",
+    "name":"P.Aparna devi",
+    "dept":"BCA Data Science",
+    "roll":"2347390329"
+},
+" Boddu Nirmala Jyothi ":{
+    "password":"pass2",
+    "name":" Boddu Nirmala Jyothi ",
+    "dept":"BCA Data Science",
+    "roll":" 2347390148"
+},
+
+"Voleti Harika":{
+    "password":"pass3",
+    "name":"Voleti Harika",
+    "dept":"BCA Data Science",
+    "roll":"2347390379"
+},
+"Pandi Keerthi":{
+    "password":"pass3",
+    "name":"Pandi Keerthi",
+    "dept":"BCA Data Science",
+    "roll":"2347390549"
+},
+
 
 # continue till student120
 
