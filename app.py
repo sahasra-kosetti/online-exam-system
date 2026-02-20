@@ -501,7 +501,7 @@ students = {
     "dept":"BSC Computer Science",
     "roll":"2347390555"
 },
-" Veera Divya:{
+" Veera Divya":{
     "password":"2019",
     "name":"VEERA DIVYA EAGALA",
     "dept":"BSC Computer Science",
@@ -654,7 +654,7 @@ students = {
     "dept":"BSC Computer Science",
     "roll":"2347390341"
 },
-"Bhuvaneswari:{
+"Bhuvaneswari":{
     "password":"1470",
     "name":"BHUVANESWARI BORA",
     "dept":"BSC Computer Science",
