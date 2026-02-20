@@ -1272,7 +1272,7 @@ Percentage: {percent:.2f}%<br><br>
 
 Time Left<br>
 
-<span id="timer">30:00</span>
+<span id="timer">10:00</span>
 
 </div>
 
