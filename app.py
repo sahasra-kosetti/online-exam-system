@@ -6,35 +6,33 @@ import os
 app = Flask(__name__)
 app.secret_key = "exam_system_secret"
 
-EXCEL_FILE = os.path.join(os.getcwd(), "results.xlsx")
+# Check if running on Render
+ON_RENDER = os.environ.get('RENDER', False)
+
+if ON_RENDER:
+    # On Render, use /tmp directory which is writable
+    EXCEL_FILE = '/tmp/results.xlsx'
+else:
+    # Local development
+    EXCEL_FILE = os.path.join(os.getcwd(), "results.xlsx")
+
 EXAM_DURATION = 600   # 10 minutes
 
-
-# =====================================================
 # CREATE EXCEL FILE
-# =====================================================
-
-if not os.path.exists(EXCEL_FILE):
-
-    wb = openpyxl.Workbook()
-    ws = wb.active
-
-    ws.title = "Exam Results"
-
-    ws.append([
-        "Username",
-        "Name",
-        "Department",
-        "Roll No",
-        "Score",
-        "Total",
-        "Percentage",
-        "Grade",
-        "Result",
-        "Time"
-    ])
-
-    wb.save(EXCEL_FILE)
+try:
+    if not os.path.exists(EXCEL_FILE):
+        wb = openpyxl.Workbook()
+        ws = wb.active
+        ws.title = "Exam Results"
+        ws.append([
+            "Username", "Name", "Department", "Roll No",
+            "Score", "Total", "Percentage", "Grade", "Result", "Time"
+        ])
+        wb.save(EXCEL_FILE)
+except Exception as e:
+    print(f"Warning: Could not create Excel file: {e}")
+    # Continue anyway - the app can still work
+    pass
 
 
 # =====================================================
@@ -42,24 +40,48 @@ if not os.path.exists(EXCEL_FILE):
 # =====================================================
 
 def save_result(username, student, score, total, percent, grade, result):
-
-    wb = openpyxl.load_workbook(EXCEL_FILE)
-    ws = wb.active
-
-    ws.append([
-        username,
-        student["name"],
-        student["dept"],
-        student["roll"],
-        score,
-        total,
-        round(percent,2),
-        grade,
-        result,
-        time.strftime("%Y-%m-%d %H:%M:%S")
-    ])
-
-    wb.save(EXCEL_FILE)
+    try:
+        # Try to load existing workbook
+        if os.path.exists(EXCEL_FILE):
+            wb = openpyxl.load_workbook(EXCEL_FILE)
+            ws = wb.active
+        else:
+            # Create new workbook if doesn't exist
+            wb = openpyxl.Workbook()
+            ws = wb.active
+            ws.title = "Exam Results"
+            ws.append([
+                "Username", "Name", "Department", "Roll No",
+                "Score", "Total", "Percentage", "Grade", "Result", "Time"
+            ])
+        
+        # Add the result
+        ws.append([
+            username,
+            student["name"],
+            student["dept"],
+            student["roll"],
+            score,
+            total,
+            round(percent,2),
+            grade,
+            result,
+            time.strftime("%Y-%m-%d %H:%M:%S")
+        ])
+        
+        # Save the file
+        wb.save(EXCEL_FILE)
+        print(f"✓ Result saved for {username}")
+        
+    except Exception as e:
+        # Print error but don't stop the app
+        print(f"✗ Could not save result for {username}: {e}")
+        # Optionally: Save to a backup text file
+        try:
+            with open('/tmp/backup_results.txt', 'a') as f:
+                f.write(f"{username},{student['name']},{score},{total},{percent},{grade},{result},{time.strftime('%Y-%m-%d %H:%M:%S')}\n")
+        except:
+            pass
 
 
 # =====================================================
